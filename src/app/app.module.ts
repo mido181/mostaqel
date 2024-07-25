@@ -12,6 +12,10 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './Modules/shared/shared.module';
 import { TokenInterceptorsService } from './service/interceptor.service';
+import { GetlengthDirective } from './diractives/getlength.directive';
+import { StickyNavbarDirective } from './diractives/sticky-navbar.directive';
+import { OverflowDirective } from './diractives/overflow.directive';
+import { LastnameshorterPipe } from './pipe/lastnameshorter.pipe';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +38,7 @@ import { TokenInterceptorsService } from './service/interceptor.service';
       useClass: TokenInterceptorsService,
       multi: true,
     },
-  ],
+],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

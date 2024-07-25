@@ -1,31 +1,22 @@
-<div class="gray-bg">
 
-  <section class="containerr">
-
-    <div class="p-5">
-
-      <div class="top-form">
-        <h3>تسجيل الدخول </h3>
+    <div class=" border p-3 mt-5 responsive rounded m-auto">
+      <div class="my-3">
+        <h5 class="text-dark text-center" >تسجيل الدخول </h5>
       </div>
-
-      <form [formGroup]="loginForm" action="">
+      <form class="flex-column align-items-center justify-content-center" [formGroup]="loginForm">
         <div class="mb-3 mt-2 ">
-          <label for="email" class="form-label">البريد الالكتروني</label>
+          <label class="text-dark form-label" for="email"  >البريد الالكتروني</label>
           <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1"
             placeholder="name@example.com">
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">كلمه المرور</label>
+          <label class="text-dark form-label" for="password"  >كلمه المرور</label>
           <input formControlName = "password" type="password" class="form-control" id="exampleFormControlInput1"
             placeholder="password">
         </div>
-        <button class="btn btn-primary" (click)="login()" > تسجيل </button>
+        <div class="text-center">
+          <button  class="btn btn-primary" (click)="login()" > تسجيل </button>
+          <!-- [disabled]="loginForm.valid" -->
+        </div>
       </form>
     </div>
-    <section>
-
-
-    </section>
-  </section>
-
-</div>

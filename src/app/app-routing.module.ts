@@ -2,28 +2,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './core/home/home.component';
-import { IsAllowGuard } from './guards/is-admin.guard';
-import { DashboardGuardService } from './service/dashboard-guard.service';
-import { AuthGuard } from './guards/auth.guard';
-import { HomeGuard } from './guards/home.guard';
+import { IsAllowGuard } from './guards/is-admin.guard';;
+import { isLoginGuard } from './guards/home.guard';
 import { PageNotFoundComponent } from './feature/not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent,
-   canActivate: [HomeGuard]
+  canActivate: [isLoginGuard]
 },
 { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {
+
+{
     path: '',
     loadChildren: () =>
       import('./authentication/auth.module').then((m) => m.AuthModule),
     data:{role:["none"]},
-       canActivate: [IsAllowGuard], 
-      
+       canActivate: [isLoginGuard],    
   },
   {
     path: 'addproject',
-    data:{role:["client" ,"none"]},
+    data:{role:["client" ,'']},
        canActivate: [IsAllowGuard], 
       
     loadChildren: () =>
@@ -34,21 +32,11 @@ const routes: Routes = [
 
   {
     path: 'freelancers',
-    data:{role:["client",'none']},
+    data:{role:["client",'']},
     canActivate: [IsAllowGuard], 
     loadChildren: () =>
       import('./feature/freelancers/freelancer.module').then(
         (m) => m.FreelancerModule
-      ),
-  },
-  {
-    path: 'dashboard',
-         data:{role:['freelancer','client']},
-       canActivate: [IsAllowGuard], 
-      //canActivate: [DashboardGuardService], //if login can acssess this module
-    loadChildren: () =>
-      import('./feature/portflio/portflio.module').then(
-        (m) => m.PortflioModule
       ),
   },
 
@@ -73,6 +61,19 @@ const routes: Routes = [
         (m) => m.PortflioModule
       ),
   },
+
+  {
+    path: 'dashboard',
+         data:{role:['freelancer','client']},
+       canActivate: [IsAllowGuard], 
+      //canActivate: [DashboardGuardService], //if login can acssess this module
+    loadChildren: () =>
+      import('./feature/portflio/portflio.module').then(
+        (m) => m.PortflioModule
+      ),
+  },
+
+
   {
     path: 'messages',
     data:{role:['freelancer','client']},
@@ -81,7 +82,7 @@ const routes: Routes = [
       import('./feature/messages/message.module').then((m) => m.MessageModule),
   },
 
-  {
+{
     path: '**', component:PageNotFoundComponent},
 ];
 

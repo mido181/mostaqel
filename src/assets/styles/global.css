@@ -1,14 +1,11 @@
 :root{
   --font-family: "Noto Kufi Arabic", sans-serif ;
    --fontColor: rgba(255, 255, 255);
+   --secondColor: #4f92f8;
   --bgAfterHover: #0d6efd;
+  --hover: #4f92f8;
   --fontColorAfterHover: white;
 --href:14px;
 --normalFont:16px;
 --headLine:19px;
 }
-
-mat-icon{
-  color: white;
-  font-size: 20px;
-  }

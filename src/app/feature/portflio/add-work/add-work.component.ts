@@ -13,16 +13,17 @@ import {
   styleUrls: ['./add-work.component.css'],
 })
 export class AddWorkComponent implements OnInit {
+  addWorkForm!: FormGroup;
+  skillsArr: string[] = [];
+  collection: string[] = [];
   spcialist: string = '';
   allval: string = '';
-  values: string[] = [];
-  addWorkForm: FormGroup;
   main: any = '';
   pic: any = '';
-  collection: string[] = [];
 
-  constructor(private FB: FormBuilder) {
-    this.addWorkForm = FB.group({
+  constructor(private FB: FormBuilder) {}
+  ngOnInit(){
+    this.addWorkForm = this.FB.group({
       title: [''],
       mainPic: [''],
       details: [''],
@@ -32,9 +33,14 @@ export class AddWorkComponent implements OnInit {
       skills: [''],
     });
   }
-  skills(skill: string) {
-    this.values.push(skill);
-    this.allval = this.values.join('-');
+
+  skills(skills: any) {
+    let skill = skills.target.value;
+    this.skillsArr.push(skill);
+  }
+
+  deleteSkill(num: number) {
+    this.skillsArr.splice(num,1);
   }
 
   uploadMain(img: any) {
@@ -60,5 +66,5 @@ export class AddWorkComponent implements OnInit {
     this.addWorkForm.controls[' picCollection'].setValue(this.collection);
     console.log(this.addWorkForm.value);
   }
-  ngOnInit(): void {}
+ 
 }

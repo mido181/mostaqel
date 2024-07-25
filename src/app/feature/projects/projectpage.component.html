@@ -1,11 +1,45 @@
 <div class="container">
-    <div class="row">
-    <app-headline>
-        المشاريع المفتوحة
-    </app-headline>
-    
-    <app-filter-byservice class="col-3"></app-filter-byservice>
-    <app-projects class="col-9" ></app-projects>
-    
+  <app-headline>المشاريع المفتوحة</app-headline>
+  <div class="row">
+    <app-filter-byservice class="col-3 hide" 
+    [typeName]="'checkbox'" 
+    [routeName]="'projects'"
+    [quarylist]="projectFilterList">
+ 
+        <ul class="check-boxs container p-2 ">
+            <li class="h5">الميزانية </li>
+            <ul >
+                <li>
+                    <label class="form-check-label">
+                      <input class="form-check-input" name="radio" type="radio" value="500"  (change)="moneyLimits($event)" >
+                      $500 - $100
+                    </label>
+                </li>
+                <li>
+                    <label class="form-check-label">
+                      <input class="form-check-input" name="radio" type="radio" value="1000"  (change)="moneyLimits($event)" >
+                        $500 - $1000
+                  </label>
+                </li>
+                <li>
+                    <label class="form-check-label">
+                      <input class="form-check-input" name="radio" type="radio" value="2000"  (change)="moneyLimits($event)" >
+                        $1000 - $2000
+                    </label>
+                </li>
+           </ul>
+        </ul>
+
+    </app-filter-byservice>
+    <app-projects class="col-lg-9 col-12 bg-white "  style="height: fit-content;" ></app-projects>
+
+
+    <div class="d-flex my-4 justify-content-center  ">
+      <button class=" border rounded-end   p-1" > التالي  </button>
+       <button class="border p-2" *ngFor="let item of [1,2,3,4,5]" > {{item}} </button>  
+      <button class=" border rounded-start p-1" > السابق</button>  
+    </div> 
 </div>
+
+<router-outlet></router-outlet>
 </div>

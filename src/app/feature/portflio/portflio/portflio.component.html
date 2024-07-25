@@ -1,82 +1,92 @@
 <div class="bg-primary">
   <div class="container">
-    <section class="first-section">
-      <div class="first-part">
-        <div>
-          <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="./"> <svg
-              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
-              viewBox="0 0 16 16">
-              <path
-                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-            </svg> الملف الشخصي </a>
-        </div>
-        <div>
-          <a routerLinkActive="active" routerLink="myprojects"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-              height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
-              <path
-                d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z" />
-            </svg> معرض الاعمال </a>
-        </div>
-      </div>
+      <section class="d-flex flex-column align-items-center gap-5" >
 
+        <div class="d-flex flex-column align-items-center gap-3" >
+          <div style="width: 100px; height: 100px;" class="rounded-circle overflow-hidden text-center ">
+            <img class="h-100 w-100" src="../../../../assets/man-156584.svg" alt="">
+          </div>
 
-      <div class="second-part">
+          <div>
+            <span class="h4">{{'mohamed Ashraf'}}</span>
+            <span alt="متصل الان" class="bg-success rounded-circle d-inline-block m-2" style="width: 12px; height:12px;"></span>
+          </div>
 
-        <div class="img">
+          <div class="d-flex flex-lg-row flex-column align-lg-items-center gap-2">
+            <div class="d-flex align-items-center">
+              <mat-icon> person_pin_circle </mat-icon>
+            <span>
+              مصر 
+            </span>
+            </div>
 
-          <img src="../../../../assets/man-156584.svg" alt="">
-        </div>
+            <div class="d-flex align-items-center">
+              <mat-icon> folder_special </mat-icon>
+              <span>  
+                مصمم ويب 
+              </span>   
+            </div>
 
-        <div class="first-info">
-          <span class="h4"> MohamedAshraf {{userinfo.firstname}}</span>
-          <span alt="متصل الان" class="active"></span>
-        </div>
+            <div class="d-flex align-items-center">
+              <mat-icon> person_pin  </mat-icon>
+              <span>
+                مستقل 
+              </span> 
+            </div>
+            
+          </div>
 
-        <div class="second-info">
-          <span> مصر <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
-              viewBox="0 0 16 16">
-              <path
-                d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-              <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-            </svg> {{userinfo.country}} </span>
-          <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-briefcase" viewBox="0 0 16 16">
-              <path
-                d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z" />
-            </svg> مصمم ويب </span>
-          <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
-              viewBox="0 0 16 16">
-              <path
-                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
-            </svg>{{userinfo.typeofuser}} مصر </span>
         </div>
 
-      </div>
+        <div class="d-flex justify-content-between w-100 hide ">
+          <div class="d-flex gap-2">
+            <div class=" border p-2 ">
+              <a class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="./"> 
+                <mat-icon> person </mat-icon>
+               <span>
+                 الملف الشخصي 
+               </span>
+              </a>
+            </div>
 
-      <div class="third-part">
-        <div>
-          <a routerLinkActive="active" routerLink="addproject"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
-              height="16" fill="currentColor" class="bi bi-plus" viewBox="0 2 13 13">
-              <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg> اضافه عمل </a>
-        </div>
-        <div>
-          <a routerLinkActive="active" routerLink="editprofile"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
-              height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z" />
-            </svg> تعديل الملف الشخصي </a>
-        </div>
-      </div>
+            <div class="d-flex align-items-center" class=" border p-2">
+              <a class="d-flex align-items-center"  routerLinkActive="active" routerLink="myprojects">
+                <mat-icon> work_outline </mat-icon>
+               <span>
+                 معرض الاعمال 
+               </span>
+              </a>
+            </div>
+          </div>
 
-    </section>
+
+
+          <div class="d-flex gap-2">
+            <div class="border p-2 ">
+              <a class="d-flex align-items-center" routerLinkActive="active" routerLink="addproject"> 
+                <mat-icon> add </mat-icon>
+             <span>
+               اضافه عمل 
+             </span>
+              </a>
+            </div>
+
+            <div class="border p-2 ">
+              <a class="d-flex align-items-center" routerLinkActive="active" routerLink="editprofile">
+                <mat-icon>edit</mat-icon>
+              <span>
+                تعديل الملف الشخصي 
+              </span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
   </div>
-
+  
 </div>
-<div class=" pb-4 pt-4">
-  <div class="container">
+  <section class="container my-5">
 
     <router-outlet> </router-outlet>
-  </div>
-</div>
+  </section>

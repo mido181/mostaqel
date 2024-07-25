@@ -14,12 +14,12 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return new Observable<boolean>((observer)=>{
-        if (this.auth.getToken == 'freelancer' || this.auth.getToken == 'client' ) {
+        if (this.auth.userExist$.getValue() == 'freelancer' || this.auth.userExist$.getValue() == 'client' ) {
           observer.next(false)
           this.route.navigateByUrl('profile')
         }
-        if (this.auth.getToken == "none") {
-          
+        if (this.auth.userExist$.getValue() == null) {
+          observer.next(true)  
         }
         observer.next(true)
 

@@ -24,19 +24,19 @@ export class RegisterComponent implements OnInit {
   ) {
     this.registerForm = this.fb.group({
       firstname: [''],
-      lastname: '',
-      email: '',
-      password: '',
-      country: '',
-      typeofuser: '',
-      brithday: '',
+      lastname: [''],
+      email: [''],
+      password: [''],
+      country: [''],
+      typeofuser: [''],
+      brithday: [''],
     });
   }
   ngOnInit(): void {}
 
-  value(value: string) {
+  userType(value: any) {
     this.typeofuser = value;
-    this.registerForm.controls['typeofuser'].setValue(this.typeofuser);
+    this.registerForm.get('typeofuser')?.setValue(this.typeofuser);
   }
 
   register() {
@@ -48,4 +48,6 @@ export class RegisterComponent implements OnInit {
     //   }
     // );
   }
+
+
 }

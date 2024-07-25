@@ -1,40 +1,69 @@
-<section class="bgC">
-  <div class="container ">
+<section class="bgC mb-1">
+  <div class="container  ">
     <app-headline>
      أضف مشروع
     </app-headline>
-    <form action="">
-      <div class="mb-3">
+
+    <form action="" [formGroup]="addProject" (ngSubmit)="submit()">
+      <div class="mb-3" >
         <label for="exampleFormControlInput1" class="form-label"> عنوان المشروع </label>
-        <input formControlName="title" type="text" class="form-control" id="exampleFormControlInput1">
-      </div>
+        <input [ngClass]="{'is-invalid':title!.touched  && title!.invalid,'is-valid':title!.touched && title!.valid }"  formControlName="title" type="text" class="form-control" id="exampleFormControlInput1">
+  
+        <ng-container *ngIf="title!.invalid && title!.touched" >
+             <small class="text-danger" *ngIf="title!.hasError('required')">
+              هذا الحقل مطلوب
+            </small>             
+            
+            <small class="text-danger" *ngIf="title!.hasError('minlength')">
+              لا يقل عن 10 حروف
+            </small>             
+      </ng-container>
+        </div>
+      
       <div class="blockquote-footer p-1">
         <cite>
           أدرج عنوانا موجزا يصف مشروعك بشكل دقيق. </cite>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label"> تفاصيل المشروع *</label>
-        <textarea formControlName="details" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
+        <textarea [ngClass]="{'is-invalid':details!.invalid && details!.touched,'is-valid':details!.valid && details!.touched}"  formControlName="desc" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+       
+        <ng-container *ngIf="details!.invalid && details!.touched" >
+          <div class="text-danger" *ngIf="details!.hasError('required')">
+           هذا الحقل مطلوب
+         </div>             
+         <div class="text-danger" *ngIf="details!.hasError('minlength')">
+          لا يقل عن 50 حروف
+        </div>             
+   </ng-container>
+</div>
+
       <div class="blockquote-footer">
         <cite title="Source Title"> أدخل وصفاً مفصلاً لمشروعك وأرفق أمثلة لما تريد ان أمكن. </cite>
       </div>
+
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">المهارات المطلوبة</label>
-        <select formControlName="skills" type="email" (change)="(value(val.value))" #val class="form-control"
-          id="exampleFormControlInput1" placeholder="name@example.com">
-          <option value=" good-in-design">يجيد تصميم </option>
-          <option value="can-summering-abook">يجيد تلخيص الكتب </option>
+        <label for="select"  class="form-label">المهارات المطلوبة</label>
+        <select [ngClass]="{'is-invalid':skill!.touched && skill!.invalid, 'is-valid':skill!.touched && skill!.valid }" (change)="selectedSkills($event)" class="form-select"
+          id="select" >
+          <option disabled selected value="good-in-design"> اختر مهاراتك </option>
+          <option value="good-in-design">يجيد تصميم </option>
+          <option value="can-summaring-abook">يجيد تلخيص الكتب </option>
           <option value="prof-in-design"> يصمم باحترافيه </option>
           <option value="have-good-intention">امين ف العمل</option>
         </select>
 
-        <div class="skill-container form-control">
-          <div class="skill-btn" *ngFor="let skill of vals">{{skill}} </div>
+        <ng-container  *ngIf="skill!.touched && skill!.invalid" >
+          <div class="text-danger" *ngIf="skill!.touched && skill!.hasError('required')" > برجاء وضع مهارة ثلاثة مهارات علي الأقل </div>
+          <div class="text-danger" *ngIf="skill!.touched && skill!.hasError('minSkills')"> برجاء تكملة  العدد المطلوب من المهارات   </div>
+        </ng-container>
 
-
-        </div>
-
+        <section *ngIf="skills.length != 0" class="p-2 bg-white my-2 d-flex flex-column flex-lg-row align-items-lg-start align-items-center   gap-1">       
+          <div *ngFor="let value of skills;let i = index" class="btn btn-primary position-relative" >
+          <span role="button" (click)="deleteSkill(i)" style="top:-10px; left: -5px; " class="badge bg-danger rounded-circle position-absolute"  >x</span>
+            {{value}}
+          </div>    
+        </section>
       </div>
 
       <div class="blockquote-footer">
@@ -45,9 +74,23 @@
         <div>
           <div class="mb-3 ">
             <label for="exampleFormControlInput1" class="form-label">الميزانية المتوقعة *</label>
-            <input formControlName="price" type="text" class="form-control" id="exampleFormControlInput1"
+            <!-- (change)="cho()" -->
+            <input  [ngClass]="{'is-invalid':price!.invalid && price!.touched,'is-valid':price!.touched && price!.valid }" formControlName="price" type="number" class="form-control" id="exampleFormControlInput1"
               placeholder="100 دولار">
-          </div>
+                
+              <ng-container *ngIf="price!.invalid && price!.touched" >
+                <div class="text-danger" *ngIf="price!.hasError('required')">
+                 هذا الحقل مطلوب
+               </div>             
+               <div class="text-danger" *ngIf="price!.hasError('min')">
+                  لا يمكن وضع مبلغ أقل من 10 دولار
+              </div>         
+              <div class="text-danger" *ngIf="price!.hasError('max')">
+                من فضلك ضع المبلغ بين 10 -5000 دولار
+                            </div>             
+         </ng-container>
+            </div>
+    
           <div class="blockquote-footer">
             <cite title="Source Title"> اختر ميزانية مناسبة يتم اظهار السعر بالدولار</cite>
           </div>
@@ -56,9 +99,18 @@
 
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">المدة المتوقعة للتسليم *</label>
-            <input formControlName="timing" type="text" class="form-control" id="exampleFormControlInput1"
+            <input [ngClass]="{'is-invalid':duration!.invalid && duration!.touched,'is-valid':duration!.touched && duration!.valid }"  formControlName="duration" type="number" class="form-control" id="exampleFormControlInput1"
               placeholder="7 ايام">
-          </div>
+
+              <ng-container *ngIf="duration!.invalid && duration!.touched" >
+                <div class="text-danger" *ngIf="duration!.hasError('required')">
+                 هذا الحقل مطلوب
+               </div>             
+         </ng-container>
+      
+
+            </div>
+          
           <div class="blockquote-footer">
             <cite title="Source Title"> متى تحتاج استلام مشروعك اكتب عدد الايام</cite>
           </div>
@@ -66,7 +118,7 @@
 
       </div>
 
-      <button class="btn btn-primary"> أرسال </button>
+      <button class="btn btn-primary" [disabled]="addProject.invalid"> أرسال </button>
     </form>
   </div>
 

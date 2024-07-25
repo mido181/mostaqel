@@ -1,19 +1,19 @@
-<h2>ملفي الشخصي</h2>
-<section class="">
-  <!-- [formGroup]="editForm" (ngSubmit)="submit()" -->
-  <form>
-    <div class="first-part">
-      <div class="apart">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"> التخصص</label>
+<app-headline>ملفي الشخصي</app-headline>
 
-          <select formControlName="spcialist" class="form-control" id="exampleFormControlInput1"
-            placeholder="name@example.com">
+<section class="">
+  <form [formGroup]="editForm" (ngSubmit)="submit()" >
+    <div class="row">
+      <div class="col-lg-6 col-12">
+        <div class="mb-3">
+          <label for="specialist" class="form-label"> التخصص</label>
+
+        <select  class="form-select"  id="specialist">
+        <option disabled selected value="good-in-design"> اختر تخصصك </option>
             <option value="arch">مهندس</option>
             <option value="acc">محاسب </option>
             <option value="dev"> مبرمج</option>
             <option value="fny"> فني</option>
-          </select>
+        </select>
         </div>
 
         <div class="blockquote-footer p-1">
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <div class="apart">
+      <div class="col-lg-6 col-12">
         <div class="mb-3">
           <label class="form-label">المسمي الوظيفي</label>
           <input formControlName="name" type="text" class="form-control">
@@ -35,7 +35,7 @@
     </div>
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label"> نبذه عنك </label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="20">
     </div>
     <div class="blockquote-footer">
       <cite title="Source Title">أضف نبذة مختصرة تعرف عن نفسك وتعليمك وخبراتك ومهاراتك. </cite>
@@ -43,17 +43,22 @@
 
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">المهارات </label>
-      <select formControlName="skills" (change)="skills(val.value)" [value]="allval" #val name="values"
-        class="form-control" id="exampleFormControlInput1">
-        <option data-val="f1" value="fasttyping">سريع الكتابه </option>
+      <select (change)="skills(val.value)" #val 
+      class="form-select"
+       id="exampleFormControlInput1">
+        <option disabled selected value="good-in-design"> اختر مهاراتك </option>
+        <option data-val="f1" value="fast typing">سريع الكتابه </option>
         <option data-val="l1" value="active">نشيط </option>
         <option data-val="i1" value="smart">سريع البديهه</option>
-        <option data-val="m1" value="goodguy">اخلاقه عاليه</option>
-
+        <option data-val="m1" value="good guy">اخلاقه عاليه</option>
       </select>
-      <div class="skill-container">
-        <div class="skill-btn" *ngFor="let value of values"> {{value}}</div>
-      </div>
+
+      <section *ngIf="values.length != 0" class="p-2 bg-white my-2 d-flex flex-column flex-lg-row align-items-lg-start align-items-center   gap-1">       
+        <button *ngFor="let value of values" class="btn btn-primary position-relative" >
+        <span style="top:-10px; left: -5px; " class="badge bg-danger rounded-circle position-absolute"  >x</span>
+          {{value}}
+        </button>    
+      </section>
     </div>
     <button class="btn btn-primary">حفظ </button>
 

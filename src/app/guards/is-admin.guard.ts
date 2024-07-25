@@ -17,7 +17,7 @@ export class IsAllowGuard implements CanActivate {
 
       return new Observable<boolean>((observer)=>{
 
-        this.userRole =  this.isAllow.getToken;
+        this.userRole =  this.isAllow.userExist$.getValue();
         this.expectedRoles = route.data['role'];
         
         const hasRole: boolean = this.expectedRoles.some((role) => this.userRole == role);

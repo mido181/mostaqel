@@ -5,8 +5,25 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 html, body { height: 100%; }
-body { margin: 0;  
-     font-family: "Noto Kufi Arabic", sans-serif;
-font-size: 14px;
 
+body { 
+     margin: 0;  
+     background-color:  #f8f9fa;
+     font-family: "Noto Kufi Arabic", sans-serif;
+     font-size: 14px;
 }
+a{
+     font-size: var(--href) !important;  
+     text-decoration: none !important;
+}
+
+
+   mat-icon{
+     font-size: 20px !important;
+     margin: auto 4px !important;
+     }
+        
+        @media only screen and (max-width: 647px) {
+          .hide{
+          display: none !important;
+          }}

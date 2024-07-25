@@ -1,14 +1,13 @@
 <section>
-  <!-- [formGroup]="addWorkForm" (ngSubmit)="submit()" -->
-  <form action="">
-    <div class="h2 mb-3"> إضافة عمل جديد</div>
+  <form action="" [formGroup]="addWorkForm" (ngSubmit)="submit()">
+    <app-headline>إضافة عمل </app-headline>
 
     <div>
 
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">عنوان العمل </label>
         <input formControlName="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-        <cite _ngcontent-ssu-c116="">
+        <cite  title="Source Title " class="text-black-50 m-2" >
 
           أدرج عنوانا موجزا يصف العمل بشكل دقيق. </cite>
       </div>
@@ -28,7 +27,7 @@
         <label for="exampleFormControlInput1" class="form-label">تفاصيل العمل </label>
         <textarea formControlName="details" class="form-control" id="exampleFormControlInput1"
           placeholder=""></textarea>
-        <cite _ngcontent-ssu-c116=""> أضف وصفا دقيقا يوضح ميزات العمل.</cite>
+        <cite  title="Source Title " class="text-black-50 m-2"  _ngcontent-ssu-c116=""> أضف وصفا دقيقا يوضح ميزات العمل.</cite>
       </div>
 
       <div class="mb-3">
@@ -39,7 +38,7 @@
         <div class="skill-container">
           <img *ngFor="let img of collection" class="simg" [src]="img" alt="">
         </div>
-        <cite _ngcontent-ssu-c116="">
+        <cite  title="Source Title " class="text-black-50 m-2"  _ngcontent-ssu-c116="">
           أضف صور أو ملفات بحد أقصى 20 مرفق.
         </cite>
         <div class="mb-3">
@@ -47,7 +46,7 @@
 
         <label for="exampleFormControlInput1" class="form-label">رابط العمل</label>
         <input formControlName="link" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-        <cite _ngcontent-ssu-c116="">رابط للعمل الذي قمت بتنفيذه مثال: رابط موقع، فيديو من YouTube أو Vimeo </cite>
+        <cite  title="Source Title " class="text-black-50 m-2"  _ngcontent-ssu-c116="">رابط للعمل الذي قمت بتنفيذه مثال: رابط موقع، فيديو من YouTube أو Vimeo </cite>
       </div>
 
       <div class="mb-3">
@@ -56,19 +55,24 @@
       </div>
 
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">المهارات المستخدمه </label>
-        <select formControlName="skills" (change)="skills(val.value)" [value]="allval" #val name="values"
-          class="form-control" id="exampleFormControlInput1">
-          <option data-val="f1" value="fasttyping">سريع الكتابه </option>
-          <option data-val="l1" value="active">نشيط </option>
-          <option data-val="i1" value="smart">سريع البديهه</option>
-          <option data-val="m1" value="goodguy">اخلاقه عاليه</option>
-
+        <label  class="form-label">المهارات المستخدمه </label>
+        <select (change)="skills($event)"
+          class="form-select">
+          <option  value="html" selected disabled> اختار المهارات  </option>
+          <option  value="html">html </option>
+          <option  value="css">css </option>
+          <option  value="boostrap">bootstrap</option>
+          <option  value="angular">angular</option>
         </select>
-        <cite _ngcontent-ssu-c116=""> حدد المهارات المستخدمة في تنفيذ العمل. </cite>
-        <div class="skill-container">
-          <div class="skill-btn" *ngFor="let value of values"> {{value}}</div>
-        </div>
+
+        <section *ngIf="skillsArr.length != 0" class="p-2 bg-white my-2 d-flex flex-column flex-lg-row align-items-lg-start align-items-center rounded   gap-1">       
+          <div *ngFor="let value of skillsArr; let i = index" class="btn btn-primary position-relative" >
+          <span role="button" (click)="deleteSkill(i)" style="top:-10px; left: -5px; " class="badge bg-danger rounded-circle position-absolute"  >x</span>
+            {{value}}
+          </div>    
+        </section>
+      
+        <cite  title="Source Title " class="text-black-50 m-2"> حدد المهارات المستخدمة في تنفيذ العمل. </cite>
       </div>
 
 
@@ -76,6 +80,6 @@
 
 
     </div>
-    <button class="mt-2 btn btn-primary"> حفظ</button>
+    <button [disabled]="" class="mt-2 btn btn-primary"> حفظ</button>
   </form>
 </section>

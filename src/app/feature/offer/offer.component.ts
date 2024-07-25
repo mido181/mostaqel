@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-offer',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./offer.component.css']
 })
 export class OfferComponent implements OnInit {
+status:string[] = [] ;
+  constructor( private router:Router) { }
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+projectStatus(e:Event){
+  let ele = (e.target as HTMLInputElement);
+  let value =  ele.value;
+  this.status[0] = value;
+  this.router.navigate(['offer'],{queryParams:{status:this.status}})
+}
+
 
 }

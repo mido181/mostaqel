@@ -1,3 +1,7 @@
+*{
+  color:black;
+}
+
 .first-part{
 display: flex;
 gap: 20px;

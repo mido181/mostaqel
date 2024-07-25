@@ -5,11 +5,10 @@ import { SharedModule } from 'src/app/Modules/shared/shared.module';
 
 import { AddprojectRoutingModule } from './addproject-routing.module';
 import { AddprojectComponent } from './addproject.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { GetlengthDirective } from 'src/app/diractives/getlength.directive';
+  
 @NgModule({
-  declarations: [AddprojectComponent],
+  declarations: [AddprojectComponent,GetlengthDirective],
   imports: [CommonModule, AddprojectRoutingModule, SharedModule],
 })
 export class AddprojectModule {}

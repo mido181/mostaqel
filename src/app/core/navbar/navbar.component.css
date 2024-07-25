@@ -1,81 +1,68 @@
-*>a{
-  text-decoration: none;
-  color: var(--fontColor);
-  font-size:var(--href);
+*{
+  color: white !important
 }
- /* *{
-  font-family: var(--font-family);
-} */
 
-.right-nav > div{
-  padding: 0px 10px;
-display: flex;
+nav{
+  transition: height .2s ease-in !important;
 }
-.right-nav > div>a{
-  padding: 0px 5px;
-}
+
 #logo{
-  font-size: 19px !important;
+font-size: 19px !important;
 letter-spacing: 0.5px;
+margin-left: 80px;
 }
 
-.auth-button>a:hover{
-  background-color:var(--bgAfterHover);
+.active {
+border-bottom: 1px solid white !important;
+} 
+
+.small-devices{
+  display: none !important;
   }
-  .auth-button > button{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.818);
-  transition: 0.3s ease-out;
+
+@media only screen and (max-width: 1024px) {
+  .hide{
+  display: none !important;
+  }
+
+  .small-devices{
+    display: block !important;
+  }
+.responsive{
+  justify-content: space-between !important;
 }
-/*
-
-
-
-
-
-  .user-freelance>div>a{
-  display: block;
-  padding: 20px;
-  color: var(--fontColor);
-  transition: 0.3s ease-out;
-  }
-
-  .user-freelance>#profile-pic{
-  color: var(--fontColor);
-  transition: 0.3s ease-out;
 
   }
 
-  #profile-pic{
-  padding: 0px;
-  text-align: center;
-  padding: 0px 20px;
+
+  .hamborgar{
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    margin-left: 10px;  
+}
+  .hamborgar > div{
+    background-color: white;
+    margin: 5px;
+    height: 2px;
+    width: 20px;
   }
 
-  #profile-pic>img{
-  background-color: var(--bgAfterHover);
-  border-radius: 50%;
-  height: 45px;
-  width: 45px;
-  display: block;
-  text-align: center;
-  margin-top:8px ;
-  }
-
-  .user-freelance>div>*:hover{
-    background-color:var(--bgAfterHover);
-    color: var(--fontColorAfterHover);
-    }
-    .user-freelance>#profile-pic:hover{
-      background-color:var(--bgAfterHover);
-      color: var(--fontColorAfterHover);
-      }
+  .sticky{
+  position: absolute;
+position: sticky;
+  overflow: auto;
+}
 
 
-    .active{
-      background-color: var(--bgAfterHover);
-      color: var(--fontColorAfterHover);
-    } */
+
+
+
+
+
+
+
+
+
+
+

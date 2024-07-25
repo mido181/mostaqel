@@ -6,19 +6,15 @@ import { AuthService } from '../service/auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeGuard implements CanActivate {
+export class isLoginGuard implements CanActivate {
     constructor( private auth:AuthService, private route:Router ){}
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   if ( this.auth.getToken == 'client' || this.auth.getToken == 'freelancer') {
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {     
+   if ( this.auth.userExist$.getValue() == 'client' || this.auth.userExist$.getValue() == 'freelancer') {
      this.route.navigateByUrl('profile')
-     return false
-     
-    } if(this.auth.getToken == 'none'){
-      return true;
-   }
-  
-  return false
+     return false    
+    }
+  return true
 }
 }

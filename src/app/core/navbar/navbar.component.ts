@@ -1,8 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../service/auth/auth.service';
-import { BehaviorSubject, Observer, Subject, from, fromEvent } from 'rxjs';
-import { IsAllowGuard } from 'src/app/guards/is-admin.guard';
+import { BehaviorSubject, Observable, Observer, Subject, from, fromEvent, take, takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -10,43 +9,69 @@ import { IsAllowGuard } from 'src/app/guards/is-admin.guard';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  userType : BehaviorSubject<string> = new BehaviorSubject<string>('');
-  userStatus: string = '';
-  showIcons!:boolean;
-  authTerm: string = '';
-  customizingNamingField:string = "أعمالي" ;
-  
+
+  userType$:BehaviorSubject<string> = new BehaviorSubject('');
+  namingChange$:BehaviorSubject<string> = new BehaviorSubject('');
+  isFreelancer$:BehaviorSubject<boolean> = new BehaviorSubject(false);
+  loginIcon$:BehaviorSubject<boolean> =  new BehaviorSubject(false);
+  logoNavigation: string ='home';
+  unsub$ = new Subject()
   constructor(private toastr: MatSnackBar , private auth:AuthService ) { 
     // this.toastr.open('hello', 'close', { duration: 3000 });
     }
   
   logout(){
     this.auth.logout();
-    this.showIcons = false; 
-    }
-
-  ngOnInit(): void {
-    
-    this.userType.next(this.auth.getToken);
-    this.userType.subscribe(IsAuth => this.userStatus = IsAuth);
-    console.log(this.userStatus);
-    
-   this.auth.iconState.subscribe(val=> this.showIcons = val)
-
-  if ( this.userStatus == 'freelancer' || this.userStatus == 'client' ) {
-   this.auth.iconState.next(true)     
-    this.authTerm = 'profile';
-      }
-      if( this.userStatus == 'client'){
-  this.customizingNamingField = "مشاريعي"; 
-    }
-    if (!localStorage.getItem) {
-    this.authTerm = 'home';
-      
-    }
-
-
   }
+  
+  ngOnInit(): void {
+  
+    // i have to do like this coz convention tranform it to just boolean
+   this.auth.userExist$.asObservable().subscribe(res=>this.isFreelancer$.next(!!res))
+    this.auth.userExist$.asObservable().subscribe(res=>this.loginIcon$.next(!!res))
+
+    this.auth.userExist$.pipe(
+      takeUntil(this.unsub$),tap((val)=>{
+      if ( val === 'freelancer' || val == 'client'){    
+        this.logoNavigation = 'profile';        
+
+        if ( val === 'freelancer') {
+          this.namingChange$.next('أعمالي')
+          this.isFreelancer$.next(true);   
+        }   
+        if (val == 'client') {
+          this.namingChange$.next('مشاريعي')
+          this.isFreelancer$.next(false);   
+          
+        }
+      }
+      if (this.auth.userExist$.getValue()){
+        this.logoNavigation = 'home';
+      }  
+      
+    })).subscribe()
+  }
+
+
+
+  
+
+
+
+
+
+
+OnDestroy(){
+  this.unsub$.next(false)
+  this.unsub$.unsubscribe()
+}
+
+
+
+
+
+
+
 
 
 }

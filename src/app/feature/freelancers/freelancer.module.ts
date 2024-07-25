@@ -8,6 +8,9 @@ import { FreelancersComponent } from './freelancers.component';
 
 @NgModule({
   declarations: [FreelancersComponent],
-  imports: [CommonModule, FreelancerRoutingModule, SharedModule],
+  imports: [CommonModule,FreelancerRoutingModule,SharedModule],
 })
-export class FreelancerModule {}
+export class FreelancerModule {
+constructor(){}
+
+}

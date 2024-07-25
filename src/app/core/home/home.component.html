@@ -1,14 +1,15 @@
-<section class="fsection">
+<section class=" text-center d-flex  justify-content-center align-items-center gap-5 sider-section" 
+style="background-position:center; height:640px; background-image: url('../../../assets/header-bg-0.jpg');">
   <div>
     <h2> انجز مشاريعك بسهوله واحترافيه معنا</h2>
     <h5>وظّف مستقلين محترفين لإنجاز أعمالك </h5>
-    <button> <a id="addBtn" routerLink="/addproject"> اضف مشروعك </a></button>
+    <button> <a id="addBtn" class="btn" routerLink="/addproject"> اضف مشروعك </a></button>
   </div>
 </section>
 
 
 
-<section class="Ssection">
+<section class="page-two-section">
   <h1> كيف يعمل موقعنا؟ </h1>
   <div>
     <h2> أضف المشروع</h2>
@@ -27,28 +28,26 @@
 </section>
 
 
-
-
-
-
 <section class="thsection">
-  <h1>اقسام الموقع </h1>
+  <h1 class="text-black" >اقسام الموقع </h1>
 
   <div class="container boxs">
 
     <div>
       <img src="../../../../assets/avatar/document.svg" alt="">
-      <p><a routerLink="/projects">أعمال وخدمات استشارية وإدارية</a></p>
+      <p>
+        <a [routerLink]="['/projects',{filterBy:'bussines'}]" queryparamsHandling="merge">أعمال وخدمات استشارية وإدارية</a>
+      </p>
     </div>
 
     <div>
       <img src="../../../assets/avatar/code.svg" alt="">
-      <p><a routerLink="/projects">برمجة، تطوير وبناء المواقع والتطبيقا</a></p>
+      <p><a [routerLink]="['/projects',{filter:'programming'}]" queryParamsHandling="merge" >برمجة، تطوير وبناء المواقع والتطبيقات</a></p>
   </div>
 
     <div>
       <img src="../../../assets/avatar/arch.svg " alt="">
-      <p><a routerLink="/projects">هندسة، عمارة وتصميم داخلي</a></p>
+      <p><a [routerLink]="['/projects', {filter:'architacte'}]" queryParamsHandling="merge"  >هندسة، عمارة وتصميم داخلي</a></p>
     </div>
 
     <div>

@@ -1,0 +1,13 @@
+*{
+  color: black !important;
+}
+
+.check-boxs > div{
+  margin: 10px 0px;
+}
+
+.check-boxs > div > input{
+display: inline-block;
+padding-left: 10px;
+}
+

@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ProjectService } from 'src/app/service/project.service';
+import { skillsValidator } from 'src/app/validators/skillsValidator';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -11,42 +12,59 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./addproject.component.css'],
 })
 export class AddprojectComponent implements OnInit {
-  addProForm: FormGroup;
-  vals: string[] = [];
-  values: string = '';
-  skillsArr: string[] = [];
-  constructor(
-    private FB: FormBuilder,
-    private add: ProjectService,
-    private http: HttpClient
-  ) {
-    this.addProForm = this.FB.group({
-      title: '',
-      details: '',
-      skills: '',
-      price: '',
-      timing: '',
-      date: '',
+  addProject!: FormGroup;
+  skills: string[] = [] 
+  constructor(private FB: FormBuilder) {}
+  
+  ngOnInit(): void {
+    this.addProject = this.FB.group({
+      title: ['',[Validators.required,Validators.minLength(10)],],
+      desc: ['',[Validators.required,Validators.minLength(50)],],
+      skill: [[''],[Validators.required , skillsValidator.minValdiator()],],
+      price: ['',[Validators.required,Validators.min(10),Validators.max(5000)]],
+      duration: ['',[Validators.required],],
+      date: [new Date(),[Validators.required],],
     });
+  
+  }
+  
+  
+  selectedSkills(skill: any) {
+    this.skills.push(skill.target.value);
+    this.addProject.get('skill')?.setValue(this.skills) 
   }
 
-  timing() {
-    let minute = new Date().getMinutes();
-    this.addProForm.get(['date'])?.setValue(minute);
+  deleteSkill(val:number){
+  this.skills.splice(val , 1);
+  this.addProject.get('skill')?.setValue(this.skills)
   }
-  value(val: string) {
-    this.vals.push(val);
-    this.values = this.vals.join();
-    console.log(this.values);
-  }
+
+
   submit() {
-    this.timing();
-    let url = environment.baseUrl;
-    this.addProForm.get(['skills'])?.setValue(this.values);
-    this.http.post(url + 'addposts', this.addProForm.value).subscribe((res) => {
-      console.log(res);
-    });
+    // this.date();
+    // console.log(this.addProject.value); 
+    // let url = environment.baseUrl;
+    // this.http.post(url + 'addposts', this.addProject.value).subscribe((res) => {
+    //   console.log(res);
+    // });
   }
 
-  ngOnInit(): void {}
+  // cho(){
+  // console.log(this.price?.errors);
+
+// }
+// date() {
+  //   let minute = new Date().getMinutes();
+  //   this.addProject.get(['date'])?.setValue(minute);
+    // }
+  
+
+    get title(){  return this.addProject.get('title')}
+    get details(){ return this.addProject.get('desc')}
+    get price(){  return this.addProject.get('price')}
+    get skill(){ return  this.addProject.get('skill')}  
+    get duration(){ return  this.addProject.get('duration')}  
+    
+
+
 }

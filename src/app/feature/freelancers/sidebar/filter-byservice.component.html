@@ -1,0 +1,70 @@
+<div class="check-boxs container p-2 ">
+  <h6 class="p-1 ">  التخصص  </h6>
+  <hr>
+  <div class="p-1">
+    <label  class="form-check-label">
+      <input type="checkbox" (change)="addfilter($event)" class="form-check-input" value="bussiness"  >
+      <a [routerLink]="['./']"  queryParamsHandling="merge"  [queryParams]="{filter:filterArray}" > 
+      أعمال وخدمات استشارية    
+      </a>
+    </label>
+  </div>
+
+  <div class="p-1">
+    <label class="form-check-label">
+      <input type="checkbox" (change)="addfilter($event)" class="form-check-input" value="programming" >
+      <a [routerLink]="['./']" queryParamsHandling="merge"  [queryParams]="{filter:filterArray}" > 
+        برمجة، تطوير المواقع والتطبيقات
+      </a>
+
+    </label>
+  </div>
+  <div class="p-1">
+    <label class="form-check-label">
+      <input type="checkbox" (change)="addfilter($event)" class="form-check-input"  value="architacte" >
+      <a [routerLink]="['./']" queryParamsHandling="merge"   [queryParams]="{filter:filterArray}" > 
+        هندسة، عمارة وتصميم داخلي
+      </a>
+
+    </label>
+  </div>
+  <div class="p-1">
+    <label class="form-check-label">
+      
+      <input class="form-check-input" type="checkbox" >
+
+        تصميم، فيديو وصوتيات
+
+        
+        
+      </label>
+  </div>
+  <div class="p-1">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox">
+
+      تسويق الكتروني ومبيعات
+
+    </label>
+  </div>
+  <div class="p-1">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox">
+      كتابة، تحرير، ترجمة ولغات
+    </label>
+  </div>
+  <div class="p-1">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox">
+      دعم، مساعدة وإدخال بيانات
+
+    </label>
+  </div>  
+  <div class="p-1">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox">
+      تدريب وتعليم عن بعد
+    </label>
+  </div>
+<ng-content></ng-content>
+</div>

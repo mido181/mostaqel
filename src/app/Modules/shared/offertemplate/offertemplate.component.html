@@ -1,0 +1,54 @@
+
+<div class="row border-bottom gap-3 p-3">
+    <div class="d-flex justify-content-between align-items-center"  >
+      <div>
+        <ng-container *ngIf="!haveBtn" [ngSwitch]="offerStatus" >
+            <strong class="p-1 badge bg-success " *ngSwitchCase="1"  > بأنتظار الموافقة </strong>
+            <strong class="p-1 badge bg-danger " *ngSwitchCase="2"  > مغلقة </strong>
+            <strong class="p-1 badge bg-secondary " *ngSwitchCase="3"  > مستبعدة  </strong>            
+            <strong class="p-1 badge bg-primary " *ngSwitchCase="4"  > قيد التنفيذ </strong>            
+            <strong class="p-1 badge bg-info " *ngSwitchCase="5"  > مكتملة </strong>            
+        </ng-container>
+
+
+        <a routerLink='project-details'> كتابة محتويه إبداعي (ملف شركة) انجليزي  </a>
+      </div>
+     
+      
+      <button *ngIf="haveBtn" class=" btn btn-primary d-flex align-items-center" >
+        <mat-icon class="mt-1"> <ng-content select="[iconName]" ></ng-content> </mat-icon>
+        <a [routerLink]="hrefLink" class="text-white ">
+           <ng-content select="[href]"></ng-content> 
+        </a>
+      </button>  
+      
+      </div>
+      
+    <div class="d-flex flex-lg-row flex-column text-secondary gap-lg-1 gap-2">
+      <div  class="d-flex aign-items-center  ">
+      <mat-icon> person </mat-icon>
+       <span>مروان بابلو</span>
+      </div>
+
+       <div  class="d-flex aign-items-center ">
+       <mat-icon> alarm </mat-icon> 
+       <span  class="d-block"> منذ 3 دقائق</span>
+       </div>
+      
+       <div  class="d-flex aign-items-center text-nowrap ">
+         <mat-icon> report </mat-icon>
+       <span> أضف أول عرض</span>
+      </div>
+      
+    </div>
+    
+    <div style="height: fit-content;">
+      <p style="line-height: 30px;" class="mh-50">
+      مطلوب كتابة محتوى لشركة في مجال الاستثمار الجريء، يجب توفر الخبرة في نفس المجال وان لا تقل عن 5 صفحات.
+      مطلوب كتابة محتوى لشركة في مجال الاستثمار الجريء، يجب توفر الخبرة في نفس المجال وان لا تقل عن 5 صفحات.
+      مطلوب كتابة محتوى لشركة في مجال الاستثمار الجريء، يجب توفر الخبرة في نفس المجال وان لا تقل عن 5 صفحات.
+      مطلوب كتابة محتوى لشركة في مجال الاستثمار الجريء، يجب توفر الخبرة في نفس المجال وان لا تقل عن 5 صفحات.  
+    </p>
+    </div>
+
+  </div>
