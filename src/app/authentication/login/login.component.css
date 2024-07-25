@@ -1,0 +1,32 @@
+  .auth-botton{
+    padding: 10px 0px;
+  }
+
+  .auth-botton > *{
+  padding: 5px 20px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.818);
+  transition: 0.3s ease-out;
+  }
+
+  .auth-botton>*:hover{
+    background-color: var(--bgAfterHover);
+    color: white;
+    }
+
+
+    .gray-bg{
+      height: 645px;
+      width: 100%;
+    display: flex;
+    }
+
+.containerr{
+background-color: var(--fontColor);
+width: 30%;
+margin:auto;
+height: 90%;
+border: 2px solid rgb(205, 205, 208) ;
+
+}
+

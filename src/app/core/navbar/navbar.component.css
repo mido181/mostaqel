@@ -1,0 +1,81 @@
+*>a{
+  text-decoration: none;
+  color: var(--fontColor);
+  font-size:var(--href);
+}
+ /* *{
+  font-family: var(--font-family);
+} */
+
+.right-nav > div{
+  padding: 0px 10px;
+display: flex;
+}
+.right-nav > div>a{
+  padding: 0px 5px;
+}
+#logo{
+  font-size: 19px !important;
+letter-spacing: 0.5px;
+}
+
+.auth-button>a:hover{
+  background-color:var(--bgAfterHover);
+  }
+  .auth-button > button{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.818);
+  transition: 0.3s ease-out;
+}
+/*
+
+
+
+
+
+  .user-freelance>div>a{
+  display: block;
+  padding: 20px;
+  color: var(--fontColor);
+  transition: 0.3s ease-out;
+  }
+
+  .user-freelance>#profile-pic{
+  color: var(--fontColor);
+  transition: 0.3s ease-out;
+
+  }
+
+  #profile-pic{
+  padding: 0px;
+  text-align: center;
+  padding: 0px 20px;
+  }
+
+  #profile-pic>img{
+  background-color: var(--bgAfterHover);
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  display: block;
+  text-align: center;
+  margin-top:8px ;
+  }
+
+  .user-freelance>div>*:hover{
+    background-color:var(--bgAfterHover);
+    color: var(--fontColorAfterHover);
+    }
+    .user-freelance>#profile-pic:hover{
+      background-color:var(--bgAfterHover);
+      color: var(--fontColorAfterHover);
+      }
+
+
+    .active{
+      background-color: var(--bgAfterHover);
+      color: var(--fontColorAfterHover);
+    } */

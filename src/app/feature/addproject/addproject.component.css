@@ -1,0 +1,22 @@
+
+.bgc{
+  background-color:var(--bgAfterHover);
+  color: var(--fontcolor);
+}
+.skill-container{
+  display: flex;
+  gap: 5px;
+  height: 200px;
+  width: 100%;
+  border: 1px solid #ced4da;
+  margin-top: 20px;
+}
+
+.skill-btn{
+  text-align: center;
+height: 40px;
+padding: 5px 10px;
+background-color: var(--bgAfterHover);
+color:var(--fontColorAfterHover);
+margin: 3px;
+}

@@ -1,0 +1,93 @@
+<nav class="bg-primary">
+  <section class="container d-flex justify-content-between">
+    <div class="right-nav d-flex align-items-center ">
+      <a [routerLink]="authTerm" class="">
+        <div id="logo" class=" text-capitalize text-light bg-primary px-2 py-3 "> arablancer </div>
+      </a>
+      <div>
+        <mat-icon>add</mat-icon>
+        <a routerLink="addproject" routerLinkActive="active"> أضف مشروع </a>
+      </div>
+
+      <ng-container *ngIf="userStatus == 'client' || userStatus == 'none'">
+        <div>
+          
+          <mat-icon>group</mat-icon>
+          <a routerLink="freelancers" routerLinkActive="active"> ابحث عن مستقلين </a>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="userStatus == 'freelancer'">
+        <div>
+          <mat-icon>list</mat-icon>
+          <a routerLink="offer" routerLinkActive="active" > عروضي </a>
+        </div>
+      </ng-container>
+
+<ng-container *ngIf="userStatus == 'client' || userStatus == 'freelancer'" >
+  <div>
+    <mat-icon> work_outline </mat-icon>
+  <a  routerLink="dashboard/myprojects" routerLinkActive="active"> {{customizingNamingField}} </a>
+  </div>
+  
+</ng-container>
+
+      <div>
+        <mat-icon>grading</mat-icon>
+        <a routerLink="projects" routerLinkActive="active"> تصفح مشاريع </a>
+      </div>
+    </div>
+
+
+    <div class="left-nav d-flex align-items-center">
+      <ng-container *ngIf="!showIcons">
+        <div class=" auth-button d-flex align-items-center gap-2 ">
+
+          <button class="bg-transparent">
+            <mat-icon>login</mat-icon>
+            <a routerLink="login"> دخول </a>
+          </button>
+
+          <button class="bg-transparent">
+            <mat-icon>person_add</mat-icon>
+            <a routerLink="register"> حساب جديد </a>
+          </button>
+        </div>
+      </ng-container>
+      
+      
+      <ng-container *ngIf="showIcons">
+        <div class="user-freelance d-flex gap-4">
+
+          <a class="position-relative">
+            <mat-icon (click)="logout()" >logout </mat-icon>
+          </a>
+
+
+          <a class="position-relative" routerLink="messages" routerLinkActive="active">
+            <span class="position-absolute badge rounded-pill top-0 start-100 bg-danger translate-middle ">
+              0
+            </span>
+            <mat-icon> mail </mat-icon>
+
+          </a>
+
+          <a class="position-relative" routerLink="messages" routerLinkActive="active">
+            <div>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                0
+              </span>
+              <mat-icon> notifications </mat-icon>
+            </div>
+          </a>
+
+
+          <a routerLink="profile" style="display: block;" id="profile-pic">
+
+            <img src="../../../assets/man-156584.svg" alt="">
+          </a>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+</nav>

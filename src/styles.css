@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import'https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap';
+@import "assets/styles/global.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body { margin: 0;  
+     font-family: "Noto Kufi Arabic", sans-serif;
+font-size: 14px;
+
+}

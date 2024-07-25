@@ -1,0 +1,61 @@
+<h2>ملفي الشخصي</h2>
+<section class="">
+  <!-- [formGroup]="editForm" (ngSubmit)="submit()" -->
+  <form>
+    <div class="first-part">
+      <div class="apart">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"> التخصص</label>
+
+          <select formControlName="spcialist" class="form-control" id="exampleFormControlInput1"
+            placeholder="name@example.com">
+            <option value="arch">مهندس</option>
+            <option value="acc">محاسب </option>
+            <option value="dev"> مبرمج</option>
+            <option value="fny"> فني</option>
+          </select>
+        </div>
+
+        <div class="blockquote-footer p-1">
+          <cite>
+            أختار مجال عملك </cite>
+        </div>
+      </div>
+
+      <div class="apart">
+        <div class="mb-3">
+          <label class="form-label">المسمي الوظيفي</label>
+          <input formControlName="name" type="text" class="form-control">
+        </div>
+        <div class="blockquote-footer p-1">
+          <cite>
+            ادخل المسمي الوظيفي ليظهر ف نتائج البحث مثل مبرمج ويب</cite>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"> نبذه عنك </label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="blockquote-footer">
+      <cite title="Source Title">أضف نبذة مختصرة تعرف عن نفسك وتعليمك وخبراتك ومهاراتك. </cite>
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">المهارات </label>
+      <select formControlName="skills" (change)="skills(val.value)" [value]="allval" #val name="values"
+        class="form-control" id="exampleFormControlInput1">
+        <option data-val="f1" value="fasttyping">سريع الكتابه </option>
+        <option data-val="l1" value="active">نشيط </option>
+        <option data-val="i1" value="smart">سريع البديهه</option>
+        <option data-val="m1" value="goodguy">اخلاقه عاليه</option>
+
+      </select>
+      <div class="skill-container">
+        <div class="skill-btn" *ngFor="let value of values"> {{value}}</div>
+      </div>
+    </div>
+    <button class="btn btn-primary">حفظ </button>
+
+  </form>
+</section>

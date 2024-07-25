@@ -1,0 +1,73 @@
+
+a,strong {
+transition: 0.3s ease-in-out;
+text-decoration: none;
+color: var(--fontColor);
+}
+
+a:hover{
+color: var(--fontColorAfterHover);
+}
+
+
+.profile-pic{
+  margin: 10px 15px;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  background-color: transparent;
+  border: 1px solid gainsboro;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  }
+
+.project{
+display: grid;
+grid-template-columns: 7% 93%;
+column-gap: 10px ;
+min-height: 180px;
+max-height: 220px;
+background-color: var(--bgAfterHover);
+margin: 3px;
+position: relative;
+
+}
+.name{
+margin-top: 12px;
+margin-bottom: 5px;
+font-weight: bolder;
+}
+.name>a{
+text-decoration: none;
+font-size: 20px;
+}
+.flex-box{
+display: flex;
+justify-content: space-between;
+width: 95%;
+}
+.properties>*{
+padding-left: 10px;
+}
+
+.hirebtn{
+background-color: transparent;
+border: none;
+transition: 3ms ease-in-out;
+}
+.hirebtn>a{
+padding: 3px 10px;
+border: 1px solid gainsboro ;
+display: block;
+
+}
+
+.hirebtn>*:hover{
+color: var(--fontColorAfterHover);
+}
+.project-details{
+margin-top: 8px;
+color: var(--fontColorAfterHover);
+width: 95%;
+}

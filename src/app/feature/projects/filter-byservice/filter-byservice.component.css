@@ -1,0 +1,24 @@
+*{
+  color: var(--fontColor);
+}
+
+.check-boxs{
+  background-color: var(--bgAfterHover);
+}
+
+.check-boxs>div{
+  margin: 10px 0px;
+}
+
+.chack-boxs>div>input{
+display: inline-block;
+padding-left: 10px;
+}
+
+a{
+    transition: 3ms ease-in-out;
+  text-decoration: none;
+}
+a:hover{
+  color: var(--fontColorAfterHover);
+}

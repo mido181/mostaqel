@@ -1,0 +1,81 @@
+<section>
+  <!-- [formGroup]="addWorkForm" (ngSubmit)="submit()" -->
+  <form action="">
+    <div class="h2 mb-3"> إضافة عمل جديد</div>
+
+    <div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">عنوان العمل </label>
+        <input formControlName="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <cite _ngcontent-ssu-c116="">
+
+          أدرج عنوانا موجزا يصف العمل بشكل دقيق. </cite>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="formFile" class="form-label">صوره مصغره </label>
+        <input (change)="uploadMain($event)" formControlName="mainPic" class="form-control" type="file" id="formFile">
+
+        <div class="skill-container">
+          <img *ngIf="main" class="simg" [src]="main" alt="">
+        </div>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">تفاصيل العمل </label>
+        <textarea formControlName="details" class="form-control" id="exampleFormControlInput1"
+          placeholder=""></textarea>
+        <cite _ngcontent-ssu-c116=""> أضف وصفا دقيقا يوضح ميزات العمل.</cite>
+      </div>
+
+      <div class="mb-3">
+        <label for="formFile" class="form-label">اسحب الملفات هنا </label>
+
+        <input formControlName="picCollection" (change)="uploadCollection($event)" class="form-control" type="file"
+          id="formFile">
+        <div class="skill-container">
+          <img *ngFor="let img of collection" class="simg" [src]="img" alt="">
+        </div>
+        <cite _ngcontent-ssu-c116="">
+          أضف صور أو ملفات بحد أقصى 20 مرفق.
+        </cite>
+        <div class="mb-3">
+        </div>
+
+        <label for="exampleFormControlInput1" class="form-label">رابط العمل</label>
+        <input formControlName="link" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+        <cite _ngcontent-ssu-c116="">رابط للعمل الذي قمت بتنفيذه مثال: رابط موقع، فيديو من YouTube أو Vimeo </cite>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">مده انجاز العمل</label>
+        <input formControlName="timing" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">المهارات المستخدمه </label>
+        <select formControlName="skills" (change)="skills(val.value)" [value]="allval" #val name="values"
+          class="form-control" id="exampleFormControlInput1">
+          <option data-val="f1" value="fasttyping">سريع الكتابه </option>
+          <option data-val="l1" value="active">نشيط </option>
+          <option data-val="i1" value="smart">سريع البديهه</option>
+          <option data-val="m1" value="goodguy">اخلاقه عاليه</option>
+
+        </select>
+        <cite _ngcontent-ssu-c116=""> حدد المهارات المستخدمة في تنفيذ العمل. </cite>
+        <div class="skill-container">
+          <div class="skill-btn" *ngFor="let value of values"> {{value}}</div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+    <button class="mt-2 btn btn-primary"> حفظ</button>
+  </form>
+</section>

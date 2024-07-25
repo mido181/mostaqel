@@ -1,0 +1,35 @@
+  /* --fontColor: rgba(255, 255, 255, 0.818);
+  --bgAfterHover: rgb(67, 143, 209);
+  --fontColorAfterHover: white; */
+
+.main{
+  background-color: gainsboro;
+ display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+column-gap: 20px;
+
+}
+
+.main >.portflio-details{
+  height: 300px;
+  flex-basis: 20%;
+  text-align: center;
+  justify-self: flex-start;
+}
+.portflio-details>a{
+  text-decoration: none;
+color: inherit;
+}
+
+.img{
+margin-top: 30px;
+  width: 100%;
+  height: 60%;
+}
+
+.img>img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}

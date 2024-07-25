@@ -1,0 +1,6 @@
+div{
+    font-size: var(--headLine);
+    color: black;
+    font-weight: bolder;
+    padding: 20px 10px;
+}

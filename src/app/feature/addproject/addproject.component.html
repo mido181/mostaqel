@@ -1,0 +1,74 @@
+<section class="bgC">
+  <div class="container ">
+    <app-headline>
+     أضف مشروع
+    </app-headline>
+    <form action="">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"> عنوان المشروع </label>
+        <input formControlName="title" type="text" class="form-control" id="exampleFormControlInput1">
+      </div>
+      <div class="blockquote-footer p-1">
+        <cite>
+          أدرج عنوانا موجزا يصف مشروعك بشكل دقيق. </cite>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"> تفاصيل المشروع *</label>
+        <textarea formControlName="details" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="blockquote-footer">
+        <cite title="Source Title"> أدخل وصفاً مفصلاً لمشروعك وأرفق أمثلة لما تريد ان أمكن. </cite>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">المهارات المطلوبة</label>
+        <select formControlName="skills" type="email" (change)="(value(val.value))" #val class="form-control"
+          id="exampleFormControlInput1" placeholder="name@example.com">
+          <option value=" good-in-design">يجيد تصميم </option>
+          <option value="can-summering-abook">يجيد تلخيص الكتب </option>
+          <option value="prof-in-design"> يصمم باحترافيه </option>
+          <option value="have-good-intention">امين ف العمل</option>
+        </select>
+
+        <div class="skill-container form-control">
+          <div class="skill-btn" *ngFor="let skill of vals">{{skill}} </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="blockquote-footer">
+        <cite title="Source Title"> حدد أهم المهارات المطلوبة لتنفيذ مشروعك.</cite>
+      </div>
+
+      <div class="d-flex gap-4 pt-4">
+        <div>
+          <div class="mb-3 ">
+            <label for="exampleFormControlInput1" class="form-label">الميزانية المتوقعة *</label>
+            <input formControlName="price" type="text" class="form-control" id="exampleFormControlInput1"
+              placeholder="100 دولار">
+          </div>
+          <div class="blockquote-footer">
+            <cite title="Source Title"> اختر ميزانية مناسبة يتم اظهار السعر بالدولار</cite>
+          </div>
+        </div>
+        <div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">المدة المتوقعة للتسليم *</label>
+            <input formControlName="timing" type="text" class="form-control" id="exampleFormControlInput1"
+              placeholder="7 ايام">
+          </div>
+          <div class="blockquote-footer">
+            <cite title="Source Title"> متى تحتاج استلام مشروعك اكتب عدد الايام</cite>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="btn btn-primary"> أرسال </button>
+    </form>
+  </div>
+
+
+</section>

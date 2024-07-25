@@ -1,0 +1,123 @@
+*{
+  color: var(--fontColor);
+}
+a
+{
+  font-size: 15px !important;
+  
+    transition: 3ms ease-in-out;
+  text-decoration: none;
+}
+a:hover{
+  color: var(--fontColorAfterHover);
+}
+
+.project{
+  display: grid;
+  grid-template-columns: 5% 95%;
+  column-gap: 10px ;
+  min-height: 180px;
+max-height: 220px;
+background-color: var(--bgAfterHover);
+margin: 3px;
+position: relative;
+}
+.name{
+margin-top: 12px;
+margin-bottom: 5px;
+}
+
+.properties>*{
+padding-left: 10px;
+}
+
+.hirebtn{
+  background-color: transparent;
+  border: none;
+  transition: 3ms ease-in-out;
+}
+.hirebtn>a{
+  padding: 3px 10px;
+  border: 1px solid gainsboro ;
+  display: block;
+
+}
+
+.hirebtn>*:hover{
+color: var(--fontColorAfterHover);
+}
+.project-details{
+margin-top: 8px;
+color: var(--fontColorAfterHover);
+width: 95%;
+}
+
+.portflio{
+  display: grid;
+  grid-template-columns: 10% 90%;
+  column-gap: 10px ;
+  min-height: 180px;
+max-height: 220px;
+background-color: var(--bgAfterHover);
+margin: 3px;
+position: relative;
+
+}
+.profile-pic{
+margin: 10px 15px;
+border-radius: 50%;
+height: 80px;
+width: 80px;
+background-color: transparent;
+border: 1px solid gainsboro;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.portflio > span{
+  width: 11px;
+  height: 11px;
+  border-radius:50%;
+position: absolute;
+right: 15px;
+top: 15px;
+}
+
+.profile-pic>img{
+display: block;
+}
+.name{
+margin-top: 12px;
+margin-bottom: 5px;
+}
+.flex-box{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+.properties>*{
+padding-left: 10px;
+}
+
+.hirebtn{
+  background-color: transparent;
+  border: none;
+  transition: 3ms ease-in-out;
+}
+.hirebtn>a{
+  padding: 3px 10px;
+  border: 1px solid gainsboro ;
+  display: block;
+
+}
+
+.hirebtn>*:hover{
+color: var(--fontColorAfterHover);
+}
+.info{
+margin-top: 8px;
+color: var(--fontColorAfterHover);
+width: 95%;
+}
+

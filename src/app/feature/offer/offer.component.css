@@ -1,0 +1,94 @@
+*{
+  color: var(--fontColor);
+}
+h3{
+color: black;
+}
+
+
+.grid-box{
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+column-gap: 10px;
+}
+
+.chack-boxs{
+background-color: var(--bgAfterHover);
+overflow: hidden;
+margin-top: 3px;
+margin-bottom: 3px;
+
+}
+.chack-boxs>div{
+  margin: 10px;
+}
+.chack-boxs>h5{
+  margin: 20px 2px;
+}
+
+.chack-boxs>div>input{
+display: inline-block;
+padding-left: 10px;
+}
+
+
+.grid-box>*{
+width: 100%;
+}
+a{
+    transition: 3ms ease-in-out;
+  text-decoration: none;
+}
+a:hover{
+  color: var(--fontColorAfterHover);
+}
+
+.project{
+  display: grid;
+  grid-template-columns: 5% 95%;
+  column-gap: 10px ;
+  min-height: 180px;
+max-height: 220px;
+background-color: var(--bgAfterHover);
+margin: 3px;
+position: relative;
+
+}
+.name{
+margin-top: 12px;
+margin-bottom: 5px;
+font-weight: bolder;
+}
+.name>a{
+  text-decoration: none;
+font-size: 20px;
+}
+.flex-box{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+.properties>*{
+padding-left: 10px;
+}
+
+.hirebtn{
+  background-color: transparent;
+  border: none;
+  transition: 3ms ease-in-out;
+}
+.hirebtn>a{
+  padding: 3px 10px;
+  border: 1px solid gainsboro ;
+  display: block;
+
+}
+
+.hirebtn>*:hover{
+color: var(--fontColorAfterHover);
+}
+.project-details{
+margin-top: 8px;
+color: var(--fontColorAfterHover);
+width: 95%;
+}
