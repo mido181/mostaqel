@@ -81,6 +81,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./feature/messages/message.module').then((m) => m.MessageModule),
   },
+  {path: 'notifications',
+  data:{role:['freelancer','client']},
+  canActivate: [IsAllowGuard],  
+  loadChildren: () =>
+    import('./feature/notifications/notifications.module').then((m) => m.NotificationsModule),
+},
 
 {
     path: '**', component:PageNotFoundComponent},
