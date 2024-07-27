@@ -21,9 +21,6 @@ const routes: Routes = [
   },
   {
     path: 'addproject',
-    data:{role:["client" ,'']},
-       canActivate: [IsAllowGuard], 
-      
     loadChildren: () =>
       import('./feature/addproject/addproject.module').then(
         (m) => m.AddprojectModule
