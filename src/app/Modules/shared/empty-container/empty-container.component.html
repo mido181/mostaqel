@@ -1,0 +1,13 @@
+<section class="container">
+   <div style="height: 400px;" class="d-flex flex-column align-items-center justify-content-center gap-3" >
+       <div class="text-center">
+           <mat-icon class="h-100 w-100" style="font-size: 80px !important" >
+               <ng-content select="[icon-name]"></ng-content> 
+            </mat-icon>
+        </div>
+
+        <div class="text-black-50 h2">
+            <ng-content select="[message]"></ng-content>
+        </div>
+    </div> 
+</section>

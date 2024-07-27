@@ -1,9 +1,23 @@
-<div class="container">
-
-  <app-headline>الرسائل </app-headline>
-  <div class="projects">
-
-    <app-offertemplate *ngFor="let project of [1,2,3,4]"
-    [haveBtn]="false">
-  </app-offertemplate>
+<div class="container"> 
+  <ng-container *ngIf="messages.length !== 0 " >
+    <ng-container  *ngTemplateOutlet="hasMessages"></ng-container>
+  </ng-container>
+<ng-container *ngIf="messages.length == 0 " >
+  <ng-container  *ngTemplateOutlet="noMessages"></ng-container>
+</ng-container>
 </div>
+
+<ng-template #noMessages>
+  <app-empty-container>
+    <ng-container icon-name> mail </ng-container>
+    <ng-container message> لا توجد رسائل </ng-container>
+  </app-empty-container>    
+</ng-template>
+
+
+<ng-template #hasMessages>
+    <app-headline>الرسائل </app-headline>
+    <div class="projects">
+      <app-offertemplate *ngFor="let project of [1,2,3,4]"[haveBtn]="false"></app-offertemplate>  
+    </div>
+</ng-template>

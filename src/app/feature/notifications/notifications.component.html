@@ -1,1 +1,23 @@
-<p>notifications works!</p>
+<div class="container"> 
+    <ng-container *ngIf="notifications.length !== 0 " >
+      <ng-container  *ngTemplateOutlet="hasNotifications"></ng-container>
+    </ng-container>
+  <ng-container *ngIf="notifications.length == 0 " >
+    <ng-container  *ngTemplateOutlet="noNotifications"></ng-container>
+  </ng-container>
+  </div>
+  
+  <ng-template #noNotifications>
+    <app-empty-container>
+      <ng-container icon-name> notifications </ng-container>
+      <ng-container message> لا توجد أشعارات </ng-container>
+    </app-empty-container>    
+  </ng-template>
+  
+  
+  <ng-template #hasNotifications>
+      <app-headline>الأشعارات </app-headline>
+      <div class="projects">
+        <app-offertemplate *ngFor="let project of [1,2,3,4]"[haveBtn]="false"></app-offertemplate>  
+      </div>
+  </ng-template>

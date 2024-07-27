@@ -60,7 +60,7 @@ ngOnInit(): void {}
 currentUser() {
   //simulation for checking of user
   let type = localStorage.getItem('userType')
-  !!type ? localStorage.setItem('token',type) : localStorage.setItem('token','') 
+   !!type ? localStorage.setItem('token',type) : localStorage.setItem('token','') 
   localStorage.setItem('token',type!)
   this.userExist$.next(type!)
   // return this.Http.post(`${this.URL}/currentuser`, `${this.getToken}`);

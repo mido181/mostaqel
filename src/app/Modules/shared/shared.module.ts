@@ -10,9 +10,10 @@ import { FilterByserviceComponent } from './filter-byservice/filter-byservice.co
 import { LastnameshorterPipe } from 'src/app/pipe/lastnameshorter.pipe';
 import { OffertemplateComponent } from './offertemplate/offertemplate.component';
 import { RouterModule } from '@angular/router';
+import { EmptyContainerComponent } from './empty-container/empty-container.component';
 
 @NgModule({
-  declarations: [HeadlineComponent,LastnameshorterPipe, OffertemplateComponent,FilterByserviceComponent],
+  declarations: [HeadlineComponent,LastnameshorterPipe, OffertemplateComponent,FilterByserviceComponent, EmptyContainerComponent],
   imports: [CommonModule,MatIconModule,RouterModule],
   exports: [
     MatIconModule,
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
     HeadlineComponent,
     LastnameshorterPipe,
     OffertemplateComponent,
-    FilterByserviceComponent
+    FilterByserviceComponent,
+    EmptyContainerComponent
   ],
 })
 export class SharedModule {}
