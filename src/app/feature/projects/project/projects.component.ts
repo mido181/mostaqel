@@ -13,7 +13,7 @@ import { ProjectService } from 'src/app/service/project.service';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  namingUser:string = '';
+  namingUser:string = 'مشروع مماثل';
   IsTherePorposel = [1,2] 
   userData: any = {};
   projectbody: any = [];
