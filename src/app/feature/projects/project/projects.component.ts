@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/service/auth/auth.service';
 
 import { ProjectService } from 'src/app/service/project.service';
+import { ToasterService } from 'src/app/service/toaster.service';
 
 @Component({
   selector: 'app-projects',
@@ -18,7 +19,9 @@ export class ProjectsComponent implements OnInit {
   userData: any = {};
   projectbody: any = [];
   now: number = new Date().getMinutes();
-  constructor(private projects: ProjectService,private route:ActivatedRoute, private auth:AuthService ) {
+  constructor(private projects: ProjectService,
+    private toaster:ToasterService,
+    private route:ActivatedRoute, private auth:AuthService ) {
         // this.projects.getPosts().subscribe((res) => {
     //   this.projectbody = res;
     // });
@@ -47,8 +50,8 @@ export class ProjectsComponent implements OnInit {
   
   }
   
-    projectId(id:number){
-console.log(id);
+  projectId(id:number){
+    console.log(id);
 
     }
   

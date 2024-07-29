@@ -31,51 +31,54 @@ style="background-position:center; height:640px; background-image: url('../../..
 <section class="thsection">
   <h1 class="text-black" >اقسام الموقع </h1>
 
-  <div class="container boxs">
 
-    <div>
-      <img src="../../../../assets/avatar/document.svg" alt="">
-      <p>
-        <a [routerLink]="['/projects',{filterBy:'bussines'}]" queryparamsHandling="merge">أعمال وخدمات استشارية وإدارية</a>
-      </p>
+    <div class="container boxs">
+
+      <div>
+        <img src="../../../../assets/avatar/document.svg" alt="">
+        <p>
+          <a [routerLink]="['/projects',{filterBy:'bussines'}]" queryparamsHandling="merge">أعمال وخدمات استشارية وإدارية</a>
+        </p>
+      </div>
+
+      <div>
+        <img src="../../../assets/avatar/code.svg" alt="">
+        <p><a [routerLink]="['/projects',{filter:'programming'}]" queryParamsHandling="merge" >برمجة، تطوير وبناء المواقع والتطبيقات</a></p>
     </div>
 
-    <div>
-      <img src="../../../assets/avatar/code.svg" alt="">
-      <p><a [routerLink]="['/projects',{filter:'programming'}]" queryParamsHandling="merge" >برمجة، تطوير وبناء المواقع والتطبيقات</a></p>
-  </div>
+      <div>
+        <img src="../../../assets/avatar/arch.svg " alt="">
+        <p><a [routerLink]="['/projects', {filter:'architacte'}]" queryParamsHandling="merge"  >هندسة، عمارة وتصميم داخلي</a></p>
+      </div>
 
-    <div>
-      <img src="../../../assets/avatar/arch.svg " alt="">
-      <p><a [routerLink]="['/projects', {filter:'architacte'}]" queryParamsHandling="merge"  >هندسة، عمارة وتصميم داخلي</a></p>
+      <div>
+        <img src="../../../assets/avatar/video.svg " alt="">
+        <p><a routerLink="/projects">تصميم، فيديو وصوتيات
+          </a></p>
+      </div>
+
+      <div>
+        <img src="../../../assets/avatar/pepole.svg " alt="">
+        <p><a routerLink="/projects">تسويق إلكتروني ومبيعات</a></p>
+      </div>
+
+      <div>
+        <img src="../../../assets/avatar/document.svg" alt="">
+        <p><a routerLink="/projects">كتابة، تحرير، ترجمة ولغات
+          </a></p>
+      </div>
+
+      <div>
+        <img src="../../../assets/avatar/call-center.svg " alt="">
+        <p><a routerLink="/projects">دعم، مساعدة وإدخال بيانات</a></p>
+      </div>
+
+      <div>
+        <img src="../../../assets/avatar/line-graph.svg " alt="">
+        <p><a routerLink="/projects">تدريب، تعليم ومساعدة عن بعد
+          </a></p>
+      </div>
     </div>
 
-    <div>
-      <img src="../../../assets/avatar/video.svg " alt="">
-      <p><a routerLink="/projects">تصميم، فيديو وصوتيات
-        </a></p>
-    </div>
 
-    <div>
-      <img src="../../../assets/avatar/pepole.svg " alt="">
-      <p><a routerLink="/projects">تسويق إلكتروني ومبيعات</a></p>
-    </div>
-
-    <div>
-      <img src="../../../assets/avatar/document.svg" alt="">
-      <p><a routerLink="/projects">كتابة، تحرير، ترجمة ولغات
-        </a></p>
-    </div>
-
-    <div>
-      <img src="../../../assets/avatar/call-center.svg " alt="">
-      <p><a routerLink="/projects">دعم، مساعدة وإدخال بيانات</a></p>
-    </div>
-
-    <div>
-      <img src="../../../assets/avatar/line-graph.svg " alt="">
-      <p><a routerLink="/projects">تدريب، تعليم ومساعدة عن بعد
-        </a></p>
-    </div>
-  </div>
 </section>

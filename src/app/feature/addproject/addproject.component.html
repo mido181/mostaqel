@@ -118,7 +118,9 @@
 
       </div>
 
-      <button class="btn btn-primary" [disabled]="addProject.invalid"> أرسال </button>
+      <button class="btn btn-primary" (click)="submit()"
+      > أرسال </button>
+      <!-- [disabled]="addProject.invalid" -->
     </form>
   </div>
 

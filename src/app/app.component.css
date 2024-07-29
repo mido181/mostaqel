@@ -10,3 +10,24 @@
     opacity: 1;
     }
     }
+
+    .sidebar{
+    z-index: 100 ;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    transition: width .3s ease-in-out;
+    }
+
+    .hide-sidebar{
+    position: absolute;
+      width: 0px;
+      overflow: hidden;
+      transition: width .3s ease-in-out;
+      z-index: 100 ;
+    
+    }

@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth/auth.service';
+import { ToasterService } from 'src/app/service/toaster.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup ;
   constructor(
     private FB: FormBuilder,
-    private route: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private toaster:ToasterService
   ) {}
 
   
@@ -33,10 +34,10 @@ export class LoginComponent implements OnInit {
 };
     
   login() {
-  console.log(this.loginForm);
-  
+    console.log(this.loginForm);
     this.auth.login()
     this.auth.iconState$.next(true);  
+    this.toaster.succsessMsg('تم تسجيل الدخول بنجاح ')
   }
 
 

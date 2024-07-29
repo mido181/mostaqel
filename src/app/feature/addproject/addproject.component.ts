@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth/auth.service';
 
 import { ProjectService } from 'src/app/service/project.service';
+import { ToasterService } from 'src/app/service/toaster.service';
 import { skillsValidator } from 'src/app/validators/skillsValidator';
 import { environment } from 'src/environments/environment.prod';
 
@@ -14,7 +17,10 @@ import { environment } from 'src/environments/environment.prod';
 export class AddprojectComponent implements OnInit {
   addProject!: FormGroup;
   skills: string[] = [] 
-  constructor(private FB: FormBuilder) {}
+  constructor(private FB: FormBuilder,private auth:AuthService,
+    
+    private router:Router,
+    private toaster:ToasterService) {}
   
   ngOnInit(): void {
     this.addProject = this.FB.group({
@@ -41,6 +47,12 @@ export class AddprojectComponent implements OnInit {
 
 
   submit() {
+    if (this.auth.userExist$.getValue() == "" ) {
+      this.toaster.failureMsg('من فضلك قم بالتسجيل اولا')
+      this.router.navigate(['login'])
+
+      }else{}
+    
     // this.date();
     // console.log(this.addProject.value); 
     // let url = environment.baseUrl;

@@ -1,7 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit,Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../service/auth/auth.service';
-import { BehaviorSubject, Observable, Observer, Subject, from, fromEvent, take, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject,Subject, takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +10,15 @@ import { BehaviorSubject, Observable, Observer, Subject, from, fromEvent, take, 
 })
 export class NavbarComponent implements OnInit {
 
+  @Output()
+  show = new EventEmitter<boolean>()
+
+
+showSidebar(){
+  this.changingstatus = !this.changingstatus 
+  this.show.emit(this.changingstatus) 
+}
+  changingstatus = false; 
   userType$:BehaviorSubject<string> = new BehaviorSubject('');
   namingChange$:BehaviorSubject<string> = new BehaviorSubject('');
   isFreelancer$:BehaviorSubject<boolean> = new BehaviorSubject(false);

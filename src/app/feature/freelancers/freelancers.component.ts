@@ -1,5 +1,8 @@
 import { Component,OnInit } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth/auth.service';
 import { QuaryparamService } from 'src/app/service/quaryparam.service';
+import { ToasterService } from 'src/app/service/toaster.service';
 
 @Component({
   selector: 'app-freelancers',
@@ -7,7 +10,14 @@ import { QuaryparamService } from 'src/app/service/quaryparam.service';
   styleUrls: ['./freelancers.component.css']
 })
 export class FreelancersComponent implements OnInit {
-  constructor(private quary:QuaryparamService ) { }
+  constructor(private quary:QuaryparamService,
+    private route:ActivatedRoute,
+    private auth:AuthService,
+    private toaster:ToasterService,
+    private router:Router
+
+
+   ) { }
   projectFilterList=[
     {name:"أعمال وخدمات استشارية",value:'bussiness'},
     {name:'برمجة، تطوير المواقع والتطبيقات',value:'programming'},
@@ -36,7 +46,14 @@ export class FreelancersComponent implements OnInit {
     console.log(id);
     
     }
-  
+  checkUser(){
+    if (this.auth.userExist$.getValue() == "" ) {
+      this.toaster.failureMsg('من فضلك قم بالتسجيل اولا')
+      this.router.navigate(['login']) 
+      }else{
+      this.router.navigate(['/profile'])
+      }
+  }
 
 
 }

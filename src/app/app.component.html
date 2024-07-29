@@ -1,8 +1,101 @@
 <div>
-  <app-navbar></app-navbar>
+  <app-navbar (show)="sidebar($event)"></app-navbar>
+    <div [appSidebar]="show">
+      <aside  class="h-100 w-75 bg-white">
+        <div class="d-flex flex-column align-items-start">
+          <a (click)="hideSidebar()"  [routerLink]="logoNavigation" id="logo" class="btn py-3" >  arablancer </a>
+        
+        <div class="d-flex flex-column align-items-start">  
+          <div class="d-flex flex-column gap-4 ">
+            
+                  <div class="d-flex justify-content-start" >
+                    <mat-icon>add</mat-icon>
+                    <a (click)="hideSidebar()" routerLink="addproject" routerLinkActive="active"> أضف مشروع </a>
+                  </div>
+            
+            <ng-container *ngIf="!(isFreelancer$|async)">
+                <div class="d-flex justify-content-start" > 
+                  <mat-icon>group</mat-icon>
+                  <a (click)="hideSidebar()" routerLink="freelancers" routerLinkActive="active"> ابحث عن مستقلين </a>
+                </div>
+            </ng-container>
+            
+            <ng-container *ngIf="(isFreelancer$|async)">
+                <div class="d-flex justify-content-start" >
+                  <mat-icon>list</mat-icon>
+                  <a (click)="hideSidebar()" routerLink="offer" routerLinkActive="active" > عروضي </a>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="(isFreelancer$|async)" >
+                <div class="d-flex justify-content-start" >
+                  <mat-icon> work_outline </mat-icon>
+                    <a (click)="hideSidebar()" routerLink="dashboard/myprojects" routerLinkActive="active"> 
+                        {{namingChange$ | async }} 
+                    </a>
+                </div> 
+            </ng-container>
+            
+            <div class="d-flex justify-content-start" >
+              <mat-icon>grading</mat-icon>
+                <a (click)="hideSidebar()" routerLink="projects" routerLinkActive="active"> تصفح مشاريع </a>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <div class="d-flex align-items-center gap-2" >
+            <ng-container  *ngIf="!(loginIcon$|async)">
+              <ng-container [ngTemplateOutlet]="loignIcon"> </ng-container>
+            </ng-container>
+          
+            <ng-container *ngIf="(loginIcon$|async)">
+                <ng-container [ngTemplateOutlet]="userIcon">  </ng-container>
+            </ng-container>
+          </div>
+        </div>              
+      </div> 
+      
+
+   
+    <div  class="d-none hamborgar position-absolute start-0 flex-column border gap-5 p-1 rounded small-devices">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+      </div> 
+      </aside>
+    </div>
+  
   <div class="mb-5" style="padding-top: 80px ;">
     <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>
 </div>
   
+
+<ng-template #loignIcon>
+  <div class=" d-flex flex-column mt-3 align-items-start gap-2">
+    <div class="bg-transparent d-flex align-items-center justify-content-start p-2">
+      <mat-icon>login</mat-icon>
+      <a routerLink="login"> دخول </a>
+    </div>
+    
+    <div class="bg-transparent d-flex align-items-center justify-content-start p-2 ">
+      <mat-icon>person_add</mat-icon>
+      <a routerLink="register"> حساب جديد </a>
+    </div>
+  </div>
+</ng-template>
+
+
+
+<ng-template #userIcon>
+  <div class=" d-flex flex-column mt-3 align-items-start gap-2">
+    
+    <a class="position-relative">
+      <mat-icon (click)="logout()" >logout </mat-icon>
+    </a>
+    
+
+</div>  
+</ng-template>
