@@ -9,15 +9,14 @@ import { BehaviorSubject,Subject, takeUntil, tap } from 'rxjs';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-
   @Output()
   show = new EventEmitter<boolean>()
-
 
 showSidebar(){
   this.changingstatus = !this.changingstatus 
   this.show.emit(this.changingstatus) 
 }
+
   changingstatus = false; 
   userType$:BehaviorSubject<string> = new BehaviorSubject('');
   namingChange$:BehaviorSubject<string> = new BehaviorSubject('');
@@ -27,20 +26,21 @@ showSidebar(){
   unsub$ = new Subject()
   constructor(private toastr: MatSnackBar , private auth:AuthService ) { 
     // this.toastr.open('hello', 'close', { duration: 3000 });
-    }
-  
+    }  
   logout(){
     this.auth.logout();
   }
-  
+   
+
   ngOnInit(): void {
   
-    // i have to do like this coz convention tranform it to just boolean
+    // i have to do like this coz convention tranform it to just boolean  
    this.auth.userExist$.asObservable().subscribe(res=>this.isFreelancer$.next(!!res))
     this.auth.userExist$.asObservable().subscribe(res=>this.loginIcon$.next(!!res))
 
     this.auth.userExist$.pipe(
-      takeUntil(this.unsub$),tap((val)=>{
+      takeUntil(this.unsub$),
+      tap((val)=>{
       if ( val === 'freelancer' || val == 'client'){    
         this.logoNavigation = 'profile';        
 

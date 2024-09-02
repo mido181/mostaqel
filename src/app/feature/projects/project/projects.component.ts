@@ -3,10 +3,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/service/auth/auth.service';
-
-import { ProjectService } from 'src/app/service/project.service';
-import { ToasterService } from 'src/app/service/toaster.service';
+import { AuthService } from '../../../service/auth/auth.service';
+import { CategoryService } from '../../../service/category.service';
 
 @Component({
   selector: 'app-projects',
@@ -19,13 +17,16 @@ export class ProjectsComponent implements OnInit {
   userData: any = {};
   projectbody: any = [];
   now: number = new Date().getMinutes();
-  constructor(private projects: ProjectService,
-    private toaster:ToasterService,
-    private route:ActivatedRoute, private auth:AuthService ) {
+  constructor(
+    private route:ActivatedRoute,private auth:AuthService,private category:CategoryService ) {
         // this.projects.getPosts().subscribe((res) => {
     //   this.projectbody = res;
     // });
+    // console.log();
+    
   }
+
+
   ngOnInit(): void {
     switch (this.auth.userExist$.getValue()) {
       case 'freelancer':
@@ -41,13 +42,9 @@ export class ProjectsComponent implements OnInit {
       default:
         break;
     }
-    
-    this.route.queryParamMap.subscribe(res =>{
-      console.log( 'this message came from projectsComponent, contain all params from filter component' + res.getAll('filter'));
-      
-    })
-    // this.userData = JSON.parse(localStorage.getItem('userDataFromregister')!);
-  
+   
+  this.category.getQueryParam('filterBy')
+  // this.userData = JSON.parse(localStorage.getItem('userDataFromregister')!);
   }
   
   projectId(id:number){

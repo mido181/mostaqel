@@ -15,9 +15,9 @@ export class FreelancersComponent implements OnInit {
     private auth:AuthService,
     private toaster:ToasterService,
     private router:Router
-
-
    ) { }
+
+   
   projectFilterList=[
     {name:"أعمال وخدمات استشارية",value:'bussiness'},
     {name:'برمجة، تطوير المواقع والتطبيقات',value:'programming'},
@@ -44,7 +44,6 @@ export class FreelancersComponent implements OnInit {
 
   freelancerInfo(id:number){
     console.log(id);
-    
     }
   checkUser(){
     if (this.auth.userExist$.getValue() == "" ) {
