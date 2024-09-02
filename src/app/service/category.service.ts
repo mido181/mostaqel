@@ -7,7 +7,7 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 export class CategoryService  {
   constructor(private route:ActivatedRoute) {    
   }
-
+//this as 
   getQueryParam(quaryName?:string){
    return this.route.queryParamMap.subscribe(res=> console.log(res.get(quaryName!)));
   
