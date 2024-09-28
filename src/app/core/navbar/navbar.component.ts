@@ -35,9 +35,11 @@ showSidebar(){
   ngOnInit(): void {
   
     // i have to do like this coz convention tranform it to just boolean  
-   this.auth.userExist$.asObservable().subscribe(res=>this.isFreelancer$.next(!!res))
-    this.auth.userExist$.asObservable().subscribe(res=>this.loginIcon$.next(!!res))
-
+   this.auth.userExist$.asObservable().subscribe(res =>{
+    this.isFreelancer$.next(!!res)
+    this.loginIcon$.next(!!res)
+  })
+  
     this.auth.userExist$.pipe(
       takeUntil(this.unsub$),
       tap((val)=>{

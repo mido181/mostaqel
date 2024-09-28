@@ -24,7 +24,7 @@
     }
 
     .hide-sidebar{
-    position: absolute;
+      position: absolute;
       width: 0px;
       overflow: hidden;
       transition: width .3s ease-in-out;

@@ -42,7 +42,7 @@
         <div class="d-flex justify-content-between">
           <div class="d-flex align-items-center gap-2" >
             <ng-container  *ngIf="!(loginIcon$|async)">
-              <ng-container [ngTemplateOutlet]="loignIcon">  </ng-container>
+              <ng-container [ngTemplateOutlet]="login">  </ng-container>
             </ng-container>
           
             <ng-container *ngIf="(loginIcon$|async)">
@@ -51,21 +51,79 @@
           </div>
         </div>              
       </div> 
-      
-
-   
-      <button (click)='showSidebar()'class=" bg-transparent d-none hamborgar position-absolute start-0 flex-column border gap-5 p-1 rounded small-devices">
-        <div></div>
-        <div></div>
-        <div></div>
-      </button>
-    </div> 
-</nav>
     
+      <button  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"  class="bg-transparent d-none  position-absolute start-0 flex-column border gap-5 p-2 rounded small-devices">
+        <div class="bg-white my-1" style="height: 2px; width: 20px;"  *ngFor="let i of [1,2,3]" ></div>
+      </button>
+
+  </div> 
+</nav>
+   
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header" >
+      <a [routerLink]="logoNavigation" class= "offcanvas-title btn py-3 text-black" style="font-size: 1.2rem !important;" > arablancer </a>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body bg-primary text-white ">
+  
+      <div class="d-flex flex-column gap-3 align-items-start">  
+        <div class="d-flex flex-column gap-4 ">
+                <div class="d-flex justify-content-start" >
+                  <mat-icon>add</mat-icon>
+                  <a routerLink="addproject" routerLinkActive="active"> أضف مشروع </a>
+                </div>
+          
+          <ng-container *ngIf="!(isFreelancer$|async)">
+              <div class="d-flex justify-content-start" > 
+                <mat-icon>group</mat-icon>
+                <a routerLink="freelancers" routerLinkActive="active"> ابحث عن مستقلين </a>
+              </div>
+          </ng-container>
+          
+          <ng-container *ngIf="(isFreelancer$|async)">
+              <div class="d-flex justify-content-start" >
+                <mat-icon>list</mat-icon>
+                <a routerLink="offer" routerLinkActive="active" > عروضي </a>
+              </div>
+          </ng-container>
+
+          <ng-container *ngIf="(isFreelancer$|async)" >
+              <div class="d-flex justify-content-start" >
+                <mat-icon> work_outline </mat-icon>
+                  <a  routerLink="dashboard/myprojects" routerLinkActive="active"> 
+                      {{namingChange$ | async }} 
+                  </a>
+              </div> 
+          </ng-container>
+          
+          <div class="d-flex justify-content-start" >
+            <mat-icon>grading</mat-icon>
+              <a  routerLink="projects" routerLinkActive="active"> تصفح مشاريع </a>
+        </div>
+      </div>
+
+      <div> 
+          <ng-container  *ngIf="!(loginIcon$|async)">
+            <ng-container [ngTemplateOutlet]="login"> </ng-container>
+          </ng-container>
+        
+          <ng-container *ngIf="(loginIcon$|async)">
+              <ng-container [ngTemplateOutlet]="userIcon">  </ng-container>
+          </ng-container>
+      </div>              
+    </div> 
+    
+
  
+  
+
+  </div>
+</div>
 
 
-<ng-template #loignIcon>
+
+
+<ng-template #login>
   <div class=" d-flex align-items-center gap-2">
     <button class="bg-transparent d-flex align-items-center justify-content-center p-2 border auth-button">
       <mat-icon>login</mat-icon>

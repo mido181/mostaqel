@@ -1,83 +1,42 @@
-<section class=" text-center d-flex  justify-content-center align-items-center gap-5 sider-section" 
-style="background-position:center; height:640px; background-image: url('../../../assets/header-bg-0.jpg');">
-  <div>
-    <h2> انجز مشاريعك بسهوله واحترافيه معنا</h2>
-    <h5>وظّف مستقلين محترفين لإنجاز أعمالك </h5>
-    <button> <a id="addBtn" class="btn" routerLink="/addproject"> اضف مشروعك </a></button>
+<section class="d-flex align-items-center justify-content-center text-center gap-5 sider-section" style="background-position:center; height:670px; background-image: url('../../../assets/header-bg-0.jpg');">
+    <div>
+      <h2> انجز مشاريعك بسهوله واحترافيه معنا</h2>
+      <h5>وظّف مستقلين محترفين لإنجاز أعمالك </h5>
+      <button> 
+        <a  class="btn btn-outline-light p-2" routerLink="/addproject"> اضف مشروعك </a>
+      </button>
   </div>
 </section>
+
 
 
 
 <section class="page-two-section">
   <h1> كيف يعمل موقعنا؟ </h1>
-  <div>
-    <h2> أضف المشروع</h2>
-    <p> أضف تفاصيل مشروعك والمهارات المطلوبة لإنجازه وابدأ باستقبال عروض المستقلين عليه.</p>
-  </div>
-
-  <div>
-    <h2> اختر العرض المناسب</h2>
-    <p> من بين العروض المقدمة لمشروعك، اختر العرض المناسب لمتطلبات المشروع ثم ابدأ مباشرة مرحلة التنفيذ. </p>
-  </div>
-
-  <div>
-    <h2>استلم المشروع </h2>
-    <p> سيعمل المستقل الذي اخترته معك حتى انتهاء العمل وتسليم مشروعك بشكل كامل كما أردته. </p>
+  <div *ngFor="let info of mostaqelinfo" >
+    <h2> {{info.title}} </h2>
+    <p> {{info.desc}} </p>
   </div>
 </section>
 
 
-<section class="thsection">
-  <h1 class="text-black" >اقسام الموقع </h1>
+<section class="text-center">
+  <h1 class="text-black my-5" >اقسام الموقع </h1>
 
 
-    <div class="container boxs">
 
-      <div>
-        <img src="../../../../assets/avatar/document.svg" alt="">
-        <p>
-          <a [routerLink]="['/projects',{filterBy:'bussines'}]" queryparamsHandling="merge">أعمال وخدمات استشارية وإدارية</a>
-        </p>
-      </div>
 
-      <div>
-        <img src="../../../assets/avatar/code.svg" alt="">
-        <p><a [routerLink]="['/projects',{filter:'programming'}]" queryParamsHandling="merge" >برمجة، تطوير وبناء المواقع والتطبيقات</a></p>
-    </div>
 
-      <div>
-        <img src="../../../assets/avatar/arch.svg " alt="">
-        <p><a [routerLink]="['/projects', {filter:'architacte'}]" queryParamsHandling="merge"  >هندسة، عمارة وتصميم داخلي</a></p>
-      </div>
-
-      <div>
-        <img src="../../../assets/avatar/video.svg " alt="">
-        <p><a routerLink="/projects">تصميم، فيديو وصوتيات
-          </a></p>
-      </div>
-
-      <div>
-        <img src="../../../assets/avatar/pepole.svg " alt="">
-        <p><a routerLink="/projects">تسويق إلكتروني ومبيعات</a></p>
-      </div>
-
-      <div>
-        <img src="../../../assets/avatar/document.svg" alt="">
-        <p><a routerLink="/projects">كتابة، تحرير، ترجمة ولغات
-          </a></p>
-      </div>
-
-      <div>
-        <img src="../../../assets/avatar/call-center.svg " alt="">
-        <p><a routerLink="/projects">دعم، مساعدة وإدخال بيانات</a></p>
-      </div>
-
-      <div>
-        <img src="../../../assets/avatar/line-graph.svg " alt="">
-        <p><a routerLink="/projects">تدريب، تعليم ومساعدة عن بعد
-          </a></p>
-      </div>
+    <div class=" boxs  container d-flex justify-content-center flex-wrap gap-3">
+      <ng-container *ngFor="let box of boxsInfo">
+        <div class="d-flex flex-column align-items-center justify-content-center gap-3"style="width:300px; height: 200px;         background-color: var(--fontColor); " >
+          <img style="height: 80px; height: 80px; " [src]="box.img" alt="">
+          <p>
+            <a [routerLink]="['/projects',{filterBy:box.filterName}]" queryparamsHandling="merge">{{box.desc}}</a>
+          </p>
+        </div>
+      </ng-container>
+    
     </div>
 
 
