@@ -15,9 +15,9 @@ const routes: Routes = [
 {
     path: '',
     loadChildren: () =>
-      import('./authentication/auth.module').then((m) => m.AuthModule),
-    data:{role:["none"]},
-       canActivate: [isLoginGuard],    
+    import('./authentication/auth.module').then((m) => m.AuthModule),
+    data:{role:["guest"]},
+    canActivate: [isLoginGuard],    
   },
   {
     path: 'addproject',
@@ -28,9 +28,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'freelancers',
-    data:{role:["client",'']},
-    canActivate: [IsAllowGuard], 
+    path: 'freelancers', 
     loadChildren: () =>
       import('./feature/freelancers/freelancer.module').then(
         (m) => m.FreelancerModule
@@ -40,6 +38,7 @@ const routes: Routes = [
   {
     path: 'projects',
     loadChildren:()=> import('./feature/projects/projects.module').then((m) => m.ProjectsModule)
+  
   },
   {
     path: 'offer',

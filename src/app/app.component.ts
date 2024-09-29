@@ -10,15 +10,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit ,OnDestroy {
-
   title = 'mostaqel';
   userType$:BehaviorSubject<string> = new BehaviorSubject('');
   namingChange$:BehaviorSubject<string> = new BehaviorSubject('');
   isFreelancer$:BehaviorSubject<boolean> = new BehaviorSubject(false);
   loginIcon$:BehaviorSubject<boolean> =  new BehaviorSubject(false);
   logoNavigation: string ='home';
-  show = false
   unsub$ = new Subject()
+  
   constructor(private toastr: MatSnackBar , private auth:AuthService ) { 
     // this.toastr.open('hello', 'close', { duration: 3000 });
     }
@@ -59,17 +58,6 @@ export class AppComponent implements OnInit ,OnDestroy {
     this.auth.logout();
   }
   
-
-  
-  sidebar(show:any){
-    this.show = show  
-  }  
-
-  hideSidebar(){
-    this.show = !this.show
-  }
-
-
 
   ngOnDestroy(){
     this.unsub$.next(false)

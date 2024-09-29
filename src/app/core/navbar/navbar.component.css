@@ -45,12 +45,7 @@ border-bottom: 1px solid white !important;
 
   }
 
-
-
-
-
-  .sticky{
-  position: absolute;
+.sticky{
   position: sticky;
   overflow: auto;
 }

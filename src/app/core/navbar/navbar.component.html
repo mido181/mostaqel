@@ -52,14 +52,14 @@
         </div>              
       </div> 
     
-      <button  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"  class="bg-transparent d-none  position-absolute start-0 flex-column border gap-5 p-2 rounded small-devices">
+      <button  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"  class="bg-transparent d-none mx-2 position-absolute start-0 flex-column border gap-5 p-2 rounded small-devices">
         <div class="bg-white my-1" style="height: 2px; width: 20px;"  *ngFor="let i of [1,2,3]" ></div>
       </button>
 
   </div> 
 </nav>
    
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" >
   <div class="offcanvas-header" >
       <a [routerLink]="logoNavigation" class= "offcanvas-title btn py-3 text-black" style="font-size: 1.2rem !important;" > arablancer </a>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
